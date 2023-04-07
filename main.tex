@@ -4,7 +4,7 @@
 \usepackage{amsmath,amsthm,amssymb}
 \let\amslrcorner\lrcorner
 \usepackage[T2A]{fontenc}
-\usepackage[cp1251]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage{amscd}
 \usepackage{oldgerm}
 \usepackage[matrix,arrow,curve]{xy}
@@ -13,36 +13,36 @@
 %\usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{mathtools}
-\usepackage{extpfeil} 
+\usepackage{extpfeil}
 \usepackage{cmap}
 \usepackage{quiver}
 \usepackage{MnSymbol}
 \usepackage{mathrsfs}
 \usetikzlibrary{babel}
-\definecolor{linkcolor}{HTML}{799B03} % цвет ссылок
-\definecolor{urlcolor}{HTML}{799B03} % цвет гиперссылок
+\definecolor{linkcolor}{HTML}{799B03} % С†РІРµС‚ СЃСЃС‹Р»РѕРє
+\definecolor{urlcolor}{HTML}{799B03} % С†РІРµС‚ РіРёРїРµСЂСЃСЃС‹Р»РѕРє
 \hypersetup{pdfstartview=FitH,  linkcolor=linkcolor,urlcolor=urlcolor, colorlinks=true}
 \vfuzz2pt % Don't report over-full v-boxes if over-edge is small
 \hfuzz2pt % Don't report over-full h-boxes if over-edge is small
 % THEOREMS -------------------------------------------------------
-\newtheorem{thm}{Теорема}[section]
-\newtheorem{exercise}[thm]{Упражнение}
-\newtheorem*{thm1}{Теорема}
-\newtheorem{cor}[thm]{Следствие}
-\newtheorem{lem}[thm]{Лемма}
-\newtheorem{zad}[thm]{Задача}
-\newtheorem{prop}[thm]{Предложение}
-\newtheorem{prop*}[thm]{*Предложение}
+\newtheorem{thm}{РўРµРѕСЂРµРјР°}[section]
+\newtheorem{exercise}[thm]{РЈРїСЂР°Р¶РЅРµРЅРёРµ}
+\newtheorem*{thm1}{РўРµРѕСЂРµРјР°}
+\newtheorem{cor}[thm]{РЎР»РµРґСЃС‚РІРёРµ}
+\newtheorem{lem}[thm]{Р›РµРјРјР°}
+\newtheorem{zad}[thm]{Р—Р°РґР°С‡Р°}
+\newtheorem{prop}[thm]{РџСЂРµРґР»РѕР¶РµРЅРёРµ}
+\newtheorem{prop*}[thm]{*РџСЂРµРґР»РѕР¶РµРЅРёРµ}
 \theoremstyle{definition}
-\newtheorem{dfn}[thm]{Определение}
-%\newtheorem{dfn}{Определение}[section]
-\newtheorem{dfn*}{*Определение}[section]
-\newtheorem*{defn1}{Определение}
+\newtheorem{dfn}[thm]{РћРїСЂРµРґРµР»РµРЅРёРµ}
+%\newtheorem{dfn}{РћРїСЂРµРґРµР»РµРЅРёРµ}[section]
+\newtheorem{dfn*}{*РћРїСЂРµРґРµР»РµРЅРёРµ}[section]
+\newtheorem*{defn1}{РћРїСЂРµРґРµР»РµРЅРёРµ}
 \theoremstyle{remark}
-\newtheorem{rem}[thm]{Замечание}
-\newtheorem{example}{Пример}[section]
+\newtheorem{rem}[thm]{Р—Р°РјРµС‡Р°РЅРёРµ}
+\newtheorem{example}{РџСЂРёРјРµСЂ}[section]
 \numberwithin{equation}{section}
-\renewcommand{\proofname}{Доказательство}
+\renewcommand{\proofname}{Р”РѕРєР°Р·Р°С‚РµР»СЊСЃС‚РІРѕ}
 \numberwithin{equation}{section}
 
 % MATH -----------------------------------------------------------
@@ -92,332 +92,17 @@
 	\include{titlepage}
 	\tableofcontents
 	\newpage
-	
-								\chapter{Название 1-й главы}
-								
-								\section{Название подраздела}
-								
-	\begin{dfn}
-	Обозначим $\mathbb{N} = \mathbb{Z}_{>0}$.
-\end{dfn}
+	\include{chapter1}
 
-Пусть $n \in \mathbb{N}$, если не оговаривается противное, то 
-наделяем все пространства $\mathbb{R}^n$ стандартной топологией, а 
-их подмножества индуцированной топологией. 
-Определим сферу $S^n$
-\begin{equation}\label{sn}
-	S^n = \set{(x_1,\ldots,x_{n+1}) \in \mathbb{R}^{n+1} : x_1^2+\ldots+x_{n+1}^2 = 1}
-\end{equation}
-и открытый шар $B^n_r (a)$ радиуса $r$ с центром в точке $a$ 
-пространства $\mathbb{R}^n$
-$$
-B^n_r (a) = \set{(x_1,\ldots,x_n) \in \mathbb{R}^n : \sum_{i = 1}^n (x_i - a_i)^2 < r^2}.
-$$
-Для любого вещественного числа $x$ обозначим
-$$
-\sigma(x) = \begin{cases}
-	1, \text{ если } x > 0, \\
-	0, \text{ если } x = 0, \\
-	-1, \text{ если } x < 0.
-\end{cases}
-$$
-Для $\epsilon= \set{\pm 1}$ обозначим
-$$
-\mathbb{R}_\epsilon= \set{x \in \mathbb{R} : \sigma(x) = \epsilon},
-$$
-нетрудно заметить, что полученные множества будут 
-являться открытыми подмножествами $\mathbb{R}$.
-
-
-
-\begin{dfn}\label{1}
-	Для $k\in \mathbb{N}$, $k\leq n+1$, $\epsilon = \set{\pm 1}$ 
-	определим 
-	$$
-	U_{\epsilon k} = \set{(x_1,\ldots,x_{n+1})\in S^n : \sigma(x_k) = \epsilon}.
-	$$
-\end{dfn}
-
-\begin{lem}
-	Множества $U_{\epsilon k}$ из \ref{1} образуют открытое 
-	покрытие $S^n$.
-\end{lem}
-
-\begin{proof}
-	Покажем, что каждая точка $x \in S_n$ попадает хотя бы в 
-	одно из множеств $U_{\epsilon k}$. Сумма квадратов компонент 
-	точки $x$ единичная, поэтому хотя бы 
-	одна из её компонент ненулевая, т.е. для некоторого 
-	$k \in \overline{1,n+1}$ получим $x_k \neq 0$. 
-	Тогда очевидно, если $x_k < 0$, то $x$ попадает в $U_{-k}$, 
-	если $x_k > 0$, то $x$ попадает в $U_{k}$, иными словами 
-	$$
-	x \in U_{\sigma(\epsilon) k}, \; \forall x \in S^n.
-	$$
-	Таким образом, мы доказали, что множества $U_{\epsilon k}$ 
-	образуют покрытие $S^{n}$. 
-	Теперь покажем, что все $U_{\epsilon k}$ открыты (в $S^n$). 
-	Рассмотрим все точки пространства $\mathbb{R}^{n+1}$ у которых 
-	$k$-ая компонента имеет знак $\epsilon$:
-	$$
-	X_{\epsilon k} = \set{(x_1,\ldots,x_{n+1}) \in \mathbb{R}^{n+1}: \sigma(x_k) = \epsilon},
-	$$
-	по сути это полупространство. 
-	Обозначим $\pi_k$ --- стандартное отображение 
-	проектирования $\pi_k : \mathbb{R}^{n+1} \to \mathbb{R}$, 
-	которое каждой строке будет сопоставлять её $k$-ую 
-	компоненту
-	$$
-	\pi_k (x_1,\ldots,x_{n+1}) = x_k.
-	$$ 
-	Очевидно, что $\pi_k$ --- непрерывное отображение, 
-	так как все функции, входящие в него --- непрерывные.
-	
-	Заметим, что 
-	$$
-	X_{\epsilon k} = \pi_k^{-1} (\mathbb{R}_\epsilon).
-	$$
-	Как известно, прообраз открытого подмножества 
-	относительно непрерывного отображения --- открыт, 
-	следовательно $X_{\epsilon k}$ --- открытое подмножество 
-	$\mathbb{R}^n$. Топология на $S^n$ индуцирована из $\mathbb{R}^{n+1}$, 
-	поэтому 
-	$$
-	U_{\epsilon k} = S^n \cap X_{\epsilon k },
-	$$
-	--- открытое подмножество $S^n$.
-\end{proof}
-
-
-\begin{lem}\label{11}
-	Пусть 
-	$$
-	\epsilon = \set{\pm 1}, \;\; i \in \mathbb{N}, \;\; i\leq n+1, \;\; x\in U_{\epsilon i},
-	$$ 
-	тогда
-	$$
-	\sum_{j\neq i}x_j^2 < 1.
-	$$
-\end{lem}
-
-\begin{dfn}\label{2}
-	Введем координатное отображение:
-	$$
-		\phi_{\epsilon k} : U_{\epsilon k} \to B_1^n (0),
-	$$
-	$$
-		(x_1, \ldots, x_{n+1}) \mapsto (x_{1}, \ldots, x_{k-1}, x_{k+1}, \ldots, x_{n+1}),
-	$$
-	В силу леммы \ref{11} данное определение корректно.	
-\end{dfn}
-
-\begin{dfn}\label{3}
-	Введем отображение:
-	$$
-		\psi_{\epsilon k} :  B_1^n (0) \to U_{\epsilon k}
-	$$
-	$$
-		(x_1, \ldots, x_n) \mapsto (x_1, \ldots, x_{k-1}, \epsilon\sqrt{1 - \sum_{i =1}^n x_i^2}, x_k, \ldots, x_n).
-	$$
-\end{dfn}
-
-\begin{thm}\label{LEMN1}
-	Пары $(U_{\epsilon k}, \phi_{\epsilon k})$, где $U_{\epsilon k}$ и 
-	$\phi_{\epsilon k}$ соответственно из \ref{1} и \ref{2} 
-	образуют гладкий атлас сферы $S^{n}$.
-\end{thm}
-
-\begin{proof}
-	Покажем, что отображения $\phi_{\epsilon k}$,  $\psi_{\epsilon k}$ 
-	из \ref{3} взаимно обратны. Пусть $x \in B_{1}^{n}(0)$, 
-	тогда
-	$$
-	\phi_{\epsilon k}\psi_{\epsilon k}(x) = \phi_{\epsilon k}\psi_{\epsilon k}(x_1, \ldots, x_n) =
-	$$
-	$$
-	\phi_{\epsilon k}(x_1, \ldots, x_{k-1}, \epsilon\sqrt{1 - \sum_{i = 1}^n x_i^2}, x_{k}, \ldots, x_n) =
-	$$
-	$$		
-	(x_1,\ldots,x_n) = x.
-	$$
-	Пусть $x \in U_{\epsilon k}$, тогда сумма квадратов компонент 
-	$x$ равна единице, следовательно
-	$$
-	1 - \sum_{i \neq k}x_i^2 = x_k^2,
-	$$ 
-	значит
-	$$
-	\sqrt{1 - \sum_{i \neq k}x_i^2} = |x_k|,
-	$$ 
-	а $\epsilon |x_k| = x_k$. Далее,
-	$$
-	\psi_{\epsilon k}\phi_{\epsilon k}(x) = \psi_{\epsilon k}\phi_{\epsilon k}(x_1, \ldots, x_{n+1})=
-	$$
-	$$
-	\psi_{\epsilon k}(x_{1}, \ldots, x_{k-1}, x_{k+1}, \ldots, x_{n+1}) =
-	$$
-	$$
-	(x_{1}, \ldots, x_{k-1}, \epsilon\sqrt{1 - \sum_{i \neq k}x_i^2}, x_{k+1}, \ldots, x_{n+1}) =
-	$$
-	$$
-	(x_{1}, \ldots, x_{k-1}, x_k, x_{k+1}, \ldots, x_{n+1}) = (x_1, \ldots, x_{n+1}) = x.
-	$$
-	Также заметим, что отображения $\phi_{\epsilon k}$ и 
-	$\psi_{\epsilon k}$ непрерывны, поскольку все функции 
-	входящие в эти отображения непрерывны. Таким образом, мы 
-	показали, что $\phi_{\epsilon k}$ --- гомеоморфизм.
-	
-	Пусть $k_1, k_2 \in \set{1, \dots, n+1}$, причём 
-	$k_1 \neq k_2$, $\epsilon_1, \epsilon_2 \in \set{\pm 1}$. 
-	Далее, зафиксируем $k_1 < k_2$ и обозначим 
-	$$
-	U_{\epsilon_1 k_1, \epsilon_2 k_2} := 
-	U_{\epsilon_1 k_1} \cap U_{\epsilon_2 k_2}, 
-	\;\;\; 
-	B := B_1^n(0), 
-	\;\;\;
-	B_{\epsilon k} := \set{(x_1,\ldots,x_n) \in B \mid \sigma(x_k) = \epsilon}
-	$$
-	Тогда
-	$$
-	U_{\epsilon_1 k_1, \epsilon_2 k_2} = 
-	U_{\epsilon_1 k_1} \cap U_{\epsilon_2 k_2} = 
-	$$
-	$$
-	\set{ x \in S^n : \sigma(x_{k_1}) = \epsilon_1} \cap
-	\set{ x \in S^n : \sigma(x_{k_2}) = \epsilon_2} =
-	$$
-	$$
-	\set{x \in S^n : \sigma(x_{k_{1}}) = 
-		\epsilon_1, \sigma(x_{k_{2}}) = \epsilon_2} =
-	$$
-	$$
-	\set{x \in U_{\epsilon_1 k_1} : \sigma(x_{k_{2}}) = \epsilon_2} 
-	= 
-	\set{x \in U_{\epsilon_2 k_2} : \sigma(x_{k_{1}}) = \epsilon_1}.
-	$$
-	Далее,
-	$$
-	\phi_{\epsilon_1 k_1}(U_{\epsilon_1 k_1} \cap U_{\epsilon_2 k_2}) =  
-	\phi_{\epsilon_1 k_1}(\set{x \in U_{\epsilon_1 k_1} : 
-		\sigma(x_{k_{2}}) = \epsilon_2}) =
-	$$
-	$$
-	\set{(x_1, \ldots, x_{k_1-1}, x_{k_1+1}, \ldots, x_{n+1}) \in \phi_{\epsilon_1 k_1}(U_{\epsilon_1 k_1}) = B_1^n (0) : 
-		\sigma(x_{k_{2}}) = \epsilon_2} =
-	$$
-	$$
-	\set{(y_1, \ldots, y_{k_1-1},y_{k_1}, y_{k_1+1}, \ldots, y_n) \in B \mid \sigma(y_{k_2 - 1}) = \epsilon_2} = 
-	B_{\epsilon_2(k_2-1)}.
-	$$
-	
-	$$
-	\phi_{\epsilon_2 k_2}(U_{\epsilon_1 k_1} \cap U_{\epsilon_2 k_2}) =  
-	\phi_{\epsilon_2 k_2}(\set{(x_1,\ldots,x_{n+1})\in U_{\epsilon_2 k_2} : 
-		\sigma(x_{k_{1}}) = \epsilon_1}) =
-	$$
-	$$
-	\set{(x_1, \ldots, x_{k_2-1}, x_{k_2+1}, \ldots, x_{n+1}) \in \phi_{\epsilon_2 k_2}(U_{\epsilon_2 k_2}) = B_1^n (0) : \sigma(x_{k_1}) = \epsilon_1} =
-	$$
-	$$
-	\set{(x_1, \ldots, x_{k_2-1}, x_{k_2+1}, \ldots, x_{n+1}) \in B \mid \sigma(x_{k_1}) = \epsilon_1} = 
-	$$
-	$$	
-	\set{y \in B \mid \sigma(y_{k_1}) = \epsilon_1} = 
-	B_{\epsilon_1 k_1}.
-	$$
-	Таким образом, мы получаем
-	$$
-	\phi_{\epsilon_1 k_1}(U_{\epsilon_1 k_1} \cap U_{\epsilon_2 k_2}) = 
-	B_{\epsilon_2(k_2-1)}, 
-	\;\;\;\;\;\;\; 
-	\phi_{\epsilon_2 k_2}(U_{\epsilon_1 k_1} \cap U_{\epsilon_2 k_2}) = B_{\epsilon_1 k_1}.
-	$$
-	Определим отображение:
-	$$
-	\tau_{\epsilon_2 k_2, \epsilon_1 k_1} := \left(\phi_{\epsilon_2 k_2}\Big|_{B_{\epsilon_1 k_1}, U_{\epsilon_1 k_1, \epsilon_2 k_2}}\right)\left(\phi_{\epsilon_1 k_1}\Big|_{B_{\epsilon_2(k_2 -1)}, U_{\epsilon_1 k_1, \epsilon_2 k_2}}\right)^{-1} : 
-	$$
-	$$
-	\phi_{\epsilon_1 k_1}(U_{\epsilon_1 k_1} \cap U_{\epsilon_2 k_2}) \to \phi_{\epsilon_2 k_2}(U_{\epsilon_1 k_1} \cap U_{\epsilon_2 k_2}).
-	$$
-	Очевидно,
-	$$
-	\tau_{\epsilon_2 k_2, \epsilon_1 k_1}: B_{\epsilon_2(k_2 -1)} \to B_{\epsilon_1 k_1}.
-	$$
-	Для всех $x \in B_{\epsilon_2(k_2 -1)}$ имеем, что
-	$$
-	\tau_{\epsilon_2 k_2, \epsilon_1 k_1}(x) = \phi_{\epsilon_2 k_2}(\phi_{\epsilon_1 k_1})^{-1}(x) =
-	\phi_{\epsilon_2 k_2}\psi_{\epsilon_1 k_1}(x) = \phi_{\epsilon_2 k_2}\psi_{\epsilon_1 k_1}(x_{1}, \ldots, x_{n}) = 
-	$$
-	$$
-	\phi_{\epsilon_2 k_2}(x_1, \ldots, x_{k_{1}-1}, \epsilon_{1}\sqrt{1 - \sum_{i =1}^{n}x_i^2}, x_{k_{1}}, \ldots, x_n) =
-	$$	
-	$$
-	(x_1, \ldots, x_{k_{1}-1}, \epsilon_{1}\sqrt{1 - \sum_{i =1}^{n}x_i^2}, x_{k_{1}}, \ldots, x_{k_{2}}, x_{k_{2}+2}, \ldots, x_n).
-	$$
-	И теперь пусть $x \in B_{\epsilon_1 k_1}$, тогда
-	$$
-	\tau_{\epsilon_1 k_1, \epsilon_2 k_2}(x) = \phi_{\epsilon_1 k_1}(\phi_{\epsilon_2 k_2})^{-1}(x) =
-	\phi_{\epsilon_1 k_1}\psi_{\epsilon_2 k_2}(x) = \phi_{\epsilon_1 k_1}\psi_{\epsilon_2 k_2}(x_{1}, \ldots, x_{n}) = 
-	$$
-	$$
-	\phi_{\epsilon_1 k_1}(x_1, \ldots, x_{k_{2}-1}, \epsilon_{2}\sqrt{1 - \sum_{i =1}^{n}x_i^2}, x_{k_{2}}, \ldots, x_n) =
-	$$	
-	$$
-	(x_1, \ldots, x_{k_{1}-1}, x_{k_{1}+1}, \ldots, x_{k_{2}-1}, \epsilon_{2}\sqrt{1 - \sum_{i =1}^{n}x_i^2}, x_{k_{2}}, \ldots, x_n).
-	$$
-	Проверим является ли отображение $\tau_{\epsilon_2 k_2, \epsilon_1 k_1}$ биективным:
-	$$
-	\tau_{\epsilon_1 k_1, \epsilon_2 k_2}\tau_{\epsilon_2 k_2, \epsilon_1 k_1}(x) :=
-	\tau_{\epsilon_2 k_2, \epsilon_1 k_1}^{-1}\tau_{\epsilon_2 k_2, \epsilon_1 k_1}(x_1, \ldots, x_n) =
-	$$
-	$$
-	\tau_{\epsilon_1 k_1, \epsilon_2 k_2}(x_1, \ldots, x_{k_{1}-1}, \epsilon_{1}\sqrt{1 - \sum_{i =1}^{n}x_i^2}, x_{k_{1}}, \ldots, x_{k_{2}}, x_{k_{2}+2}, \ldots, x_n) =
-	$$
-	$$
-	(x_1, \ldots, x_{k_{1}-1}, x_{k_{1}}, \ldots, x_{k_{2}}, \epsilon_{2}\sqrt{1 - \sum_{i \neq k_{2}+1}x_i^2}, x_{k_{2}+2}, \ldots, x_n) =
-	$$
-	$$
-	(x_1, \ldots, x_{k_{1}-1}, x_{k_{1}}, \ldots, x_{k_{2}}, x_{k_{2}+1}, x_{k_{2}+2}, \ldots, x_n) =
-	$$
-	$$
-	(x_1,\ldots,x_n) = x.
-	$$
-	И в обратную сторону:
-	$$
-	\tau_{\epsilon_2 k_2, \epsilon_1 k_1}\tau_{\epsilon_1 k_1, \epsilon_2 k_2}(x) :=
-	\tau_{\epsilon_2 k_2, \epsilon_1 k_1}\tau_{\epsilon_2 k_2, \epsilon_1 k_1}^{-1}(x_1, \ldots, x_n) =
-	$$
-	$$
-	\tau_{\epsilon_2 k_2, \epsilon_1 k_1}(x_1, \ldots, x_{k_{1}-1}, x_{k_{1}+1}, \ldots, x_{k_{2}-1}, \epsilon_{2}\sqrt{1 - \sum_{i =1}^{n}x_i^2}, x_{k_{2}}, \ldots, x_n) =
-	$$
-	$$
-	(x_1, \ldots, x_{k_{1}-1}, \epsilon_{1}\sqrt{1 - \sum_{i \neq k_1}x_i^2}, x_{k_{1}+1}, \ldots, x_{k_{2}-1}, x_{k_{2}}, \ldots, x_n) =
-	$$
-	$$
-	(x_1, \ldots, x_{k_{1}-1}, x_{k_{1}}, x_{k_{1}+1}, \ldots, x_{k_{2}-1}, x_{k_{2}}, \ldots, x_n) =
-	$$
-	$$
-	(x_1, \ldots x_n) = x.
-	$$
-	Заметим, что $\tau_{\epsilon_2 k_2, \epsilon_1 k_1}$ является 
-	гладким отображением, 
-	так как все функции входящие в неё гладкие. 
-	Таким образом, пары $(U_{\epsilon k}, \phi_{\epsilon k})$ образуют 
-	гладкий атлас $S^{n}$.
-\end{proof}
-								
-	
-	
-	\begin{thebibliography}{99} %библиография
+	\begin{thebibliography}{99} %Р±РёР±Р»РёРѕРіСЂР°С„РёСЏ
 		\bibitem{Volochkov}
-		Волочков А.А. Введение в теорию конечных групп./ / А.А.Волочков. --- Пермь, 2020.---233 стр. 58.
+		Р’РѕР»РѕС‡РєРѕРІ Рђ.Рђ. Р’РІРµРґРµРЅРёРµ РІ С‚РµРѕСЂРёСЋ РєРѕРЅРµС‡РЅС‹С… РіСЂСѓРїРї./ / Рђ.Рђ.Р’РѕР»РѕС‡РєРѕРІ. --- РџРµСЂРјСЊ, 2020.---233 СЃС‚СЂ. 58.
 		\bibitem{Kolmogorov}
-		Колмогоров А.Н., Фомин С.В. Элементы теории функции и функционального анализа.
+		РљРѕР»РјРѕРіРѕСЂРѕРІ Рђ.Рќ., Р¤РѕРјРёРЅ РЎ.Р’. Р­Р»РµРјРµРЅС‚С‹ С‚РµРѕСЂРёРё С„СѓРЅРєС†РёРё Рё С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅРѕРіРѕ Р°РЅР°Р»РёР·Р°.
 		\bibitem{Milnor}
-		Милнор Д., Уоллес А. Дифференциальная топология начальный курс.
+		РњРёР»РЅРѕСЂ Р”., РЈРѕР»Р»РµСЃ Рђ. Р”РёС„С„РµСЂРµРЅС†РёР°Р»СЊРЅР°СЏ С‚РѕРїРѕР»РѕРіРёСЏ РЅР°С‡Р°Р»СЊРЅС‹Р№ РєСѓСЂСЃ.
 		\bibitem{Hirsh}
-		Хирш М. Дифференциальная топология.
+		РҐРёСЂС€ Рњ. Р”РёС„С„РµСЂРµРЅС†РёР°Р»СЊРЅР°СЏ С‚РѕРїРѕР»РѕРіРёСЏ.
 		\bibitem{Jurgen}
 		Jurgen J. Riemannian Geometry and Geometric.
 		\bibitem{Madsen}
@@ -426,6 +111,6 @@ $$
 		\bibitem{Lee}
 		John M. Lee Introduction to Smooth Manifolds.
 	\end{thebibliography}
-	
-	
+
+
 \end{document}
