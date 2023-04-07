@@ -32,7 +32,7 @@ jobs:
           name: 'Курсовая работа. Ляховой Д.С. Алгебраические кривые'
       - uses: softprops/action-gh-release@v1
         with:
-          body_path: README.md
+#           body_path: README.md
           files: |
             'Курсовая работа. Ляховой Д.С. Алгебраические кривые.pdf'
-            README.md
+#             README.md
