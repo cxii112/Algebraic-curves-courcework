@@ -1,0 +1,38 @@
+name: Release
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+          compiler: pdf2latex
+#           latexmk_use_xelatex: true
+          args: -jobname="Курсовая работа. Ляховой Д.С. Алгебраические кривые" -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+          post_compile: "latexmk -c"
+          # extra_fonts: ./resources/fonts/*.ttf
+      - uses: actions/upload-artifact@v3
+        with:
+          name: "Курсовая работа. Ляховой Д.С. Алгебраические кривые"
+          path: "./Курсовая работа. Ляховой Д.С. Алгебраические кривые.pdf"
+
+  release:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: "Курсовая работа. Ляховой Д.С. Алгебраические кривые"
+      - uses: softprops/action-gh-release@v1
+        with:
+          body_path: README.md
+          files: |
+            "Курсовая работа. Ляховой Д.С. Алгебраические кривые.pdf"
+            README.md
