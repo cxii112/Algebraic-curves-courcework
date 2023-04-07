@@ -1,10 +1,10 @@
-\documentclass[oneside,12pt]{book}
+\documentclass[a4paper,12pt]{report}
 \textwidth=16cm \oddsidemargin=0pt \evensidemargin=0pt
 \usepackage[english,russian]{babel}
 \usepackage{amsmath,amsthm,amssymb}
 \let\amslrcorner\lrcorner
 \usepackage[T2A]{fontenc}
-\usepackage[utf8]{inputenc}
+\usepackage[cp1251]{inputenc}
 \usepackage{amscd}
 \usepackage{oldgerm}
 \usepackage[matrix,arrow,curve]{xy}
@@ -19,30 +19,31 @@
 \usepackage{MnSymbol}
 \usepackage{mathrsfs}
 \usetikzlibrary{babel}
-\definecolor{linkcolor}{HTML}{799B03} % С†РІРµС‚ СЃСЃС‹Р»РѕРє
-\definecolor{urlcolor}{HTML}{799B03} % С†РІРµС‚ РіРёРїРµСЂСЃСЃС‹Р»РѕРє
+\definecolor{linkcolor}{HTML}{000000} % цвет ссылок
+\definecolor{urlcolor}{HTML}{000000} % цвет гиперссылок
 \hypersetup{pdfstartview=FitH,  linkcolor=linkcolor,urlcolor=urlcolor, colorlinks=true}
+
 \vfuzz2pt % Don't report over-full v-boxes if over-edge is small
 \hfuzz2pt % Don't report over-full h-boxes if over-edge is small
 % THEOREMS -------------------------------------------------------
-\newtheorem{thm}{РўРµРѕСЂРµРјР°}[section]
-\newtheorem{exercise}[thm]{РЈРїСЂР°Р¶РЅРµРЅРёРµ}
-\newtheorem*{thm1}{РўРµРѕСЂРµРјР°}
-\newtheorem{cor}[thm]{РЎР»РµРґСЃС‚РІРёРµ}
-\newtheorem{lem}[thm]{Р›РµРјРјР°}
-\newtheorem{zad}[thm]{Р—Р°РґР°С‡Р°}
-\newtheorem{prop}[thm]{РџСЂРµРґР»РѕР¶РµРЅРёРµ}
-\newtheorem{prop*}[thm]{*РџСЂРµРґР»РѕР¶РµРЅРёРµ}
+\newtheorem{thm}{Теорема}[section]
+\newtheorem{exercise}[thm]{Упражнение}
+\newtheorem*{thm1}{Теорема}
+\newtheorem{cor}[thm]{Следствие}
+\newtheorem{lem}[thm]{Лемма}
+\newtheorem{zad}[thm]{Задача}
+\newtheorem{prop}[thm]{Предложение}
+\newtheorem{prop*}[thm]{*Предложение}
 \theoremstyle{definition}
-\newtheorem{dfn}[thm]{РћРїСЂРµРґРµР»РµРЅРёРµ}
-%\newtheorem{dfn}{РћРїСЂРµРґРµР»РµРЅРёРµ}[section]
-\newtheorem{dfn*}{*РћРїСЂРµРґРµР»РµРЅРёРµ}[section]
-\newtheorem*{defn1}{РћРїСЂРµРґРµР»РµРЅРёРµ}
+\newtheorem{dfn}[thm]{Определение}
+%\newtheorem{dfn}{Определение}[section]
+\newtheorem{dfn*}{*Определение}[section]
+\newtheorem*{defn1}{Определение}
 \theoremstyle{remark}
-\newtheorem{rem}[thm]{Р—Р°РјРµС‡Р°РЅРёРµ}
-\newtheorem{example}{РџСЂРёРјРµСЂ}[section]
+\newtheorem{rem}[thm]{Замечание}
+\newtheorem{example}{Пример}[section]
 \numberwithin{equation}{section}
-\renewcommand{\proofname}{Р”РѕРєР°Р·Р°С‚РµР»СЊСЃС‚РІРѕ}
+\renewcommand{\proofname}{Доказательство}
 \numberwithin{equation}{section}
 
 % MATH -----------------------------------------------------------
@@ -88,21 +89,37 @@
 \newcommand{\PS}{\operatorname{P}}
 \DeclareMathOperator{\noreq}{\trianglelefteq}
 \newcommand{\Co}{\mathbb{C}}
+
+% Стили для курсовой по шаблону
+\usepackage{geometry} % Меняем поля страницы
+\geometry{left=3cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+\renewcommand\contentsname{Содержание}
+\renewcommand{\theenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumii}{.\arabic{enumii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumiii}{.\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}% Меняем везде перечисления на цифра.цифра
+
+
 \begin{document}
 	\include{titlepage}
 	\tableofcontents
 	\newpage
 	\include{chapter1}
 
-	\begin{thebibliography}{99} %Р±РёР±Р»РёРѕРіСЂР°С„РёСЏ
+	\begin{thebibliography}{99} %библиография
 		\bibitem{Volochkov}
-		Р’РѕР»РѕС‡РєРѕРІ Рђ.Рђ. Р’РІРµРґРµРЅРёРµ РІ С‚РµРѕСЂРёСЋ РєРѕРЅРµС‡РЅС‹С… РіСЂСѓРїРї./ / Рђ.Рђ.Р’РѕР»РѕС‡РєРѕРІ. --- РџРµСЂРјСЊ, 2020.---233 СЃС‚СЂ. 58.
+		Волочков А.А. Введение в теорию конечных групп./ / А.А.Волочков. --- Пермь, 2020.---233 стр. 58.
 		\bibitem{Kolmogorov}
-		РљРѕР»РјРѕРіРѕСЂРѕРІ Рђ.Рќ., Р¤РѕРјРёРЅ РЎ.Р’. Р­Р»РµРјРµРЅС‚С‹ С‚РµРѕСЂРёРё С„СѓРЅРєС†РёРё Рё С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅРѕРіРѕ Р°РЅР°Р»РёР·Р°.
+		Колмогоров А.Н., Фомин С.В. Элементы теории функции и функционального анализа.
 		\bibitem{Milnor}
-		РњРёР»РЅРѕСЂ Р”., РЈРѕР»Р»РµСЃ Рђ. Р”РёС„С„РµСЂРµРЅС†РёР°Р»СЊРЅР°СЏ С‚РѕРїРѕР»РѕРіРёСЏ РЅР°С‡Р°Р»СЊРЅС‹Р№ РєСѓСЂСЃ.
+		Милнор Д., Уоллес А. Дифференциальная топология начальный курс.
 		\bibitem{Hirsh}
-		РҐРёСЂС€ Рњ. Р”РёС„С„РµСЂРµРЅС†РёР°Р»СЊРЅР°СЏ С‚РѕРїРѕР»РѕРіРёСЏ.
+		Хирш М. Дифференциальная топология.
 		\bibitem{Jurgen}
 		Jurgen J. Riemannian Geometry and Geometric.
 		\bibitem{Madsen}
