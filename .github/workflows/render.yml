@@ -19,7 +19,7 @@ jobs:
           # extra_fonts: ./resources/fonts/*.ttf
       - uses: actions/upload-artifact@v3
         with:
-          name: 'Курсовая работа. Ляховой Д.С. Алгебраические кривые'
+          name: Курсовая\ работа.\ Ляховой\ Д.С.\ Алгебраические\ кривые
           path: ./Algebraic-curves-courcework.pdf
 
   release:
@@ -29,10 +29,10 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/download-artifact@v3
         with:
-          name: 'Курсовая работа. Ляховой Д.С. Алгебраические кривые'
+          name: Курсовая\ работа.\ Ляховой\ Д.С.\ Алгебраические\ кривые
       - uses: softprops/action-gh-release@v1
         with:
 #           body_path: README.md
           files: |
-            'Курсовая работа. Ляховой Д.С. Алгебраические кривые.pdf'
+            Курсовая\ работа.\ Ляховой\ Д.С.\ Алгебраические\ кривые.pdf
 #             README.md
