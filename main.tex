@@ -1,5 +1,5 @@
-\documentclass[a4paper,12pt]{report}
-\textwidth=16cm \oddsidemargin=0pt \evensidemargin=0pt
+\documentclass[12pt,a4paper,oneside]{report}
+% \textwidth=16cm \oddsidemargin=0pt \evensidemargin=0pt
 \usepackage[english,russian]{babel}
 \usepackage{amsmath,amsthm,amssymb}
 \let\amslrcorner\lrcorner
@@ -10,7 +10,6 @@
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{tikz-cd}
 \usepackage{comment}
-%\usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage{extpfeil}
@@ -19,12 +18,12 @@
 \usepackage{MnSymbol}
 \usepackage{mathrsfs}
 \usetikzlibrary{babel}
-\definecolor{linkcolor}{HTML}{000000} % цвет ссылок
-\definecolor{urlcolor}{HTML}{000000} % цвет гиперссылок
+\definecolor{linkcolor}{HTML}{008CF9} % цвет ссылок
+\definecolor{urlcolor}{HTML}{008CF9} % цвет гиперссылок
 \hypersetup{pdfstartview=FitH,  linkcolor=linkcolor,urlcolor=urlcolor, colorlinks=true}
-
 \vfuzz2pt % Don't report over-full v-boxes if over-edge is small
 \hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+
 % THEOREMS -------------------------------------------------------
 \newtheorem{thm}{Теорема}[section]
 \newtheorem{exercise}[thm]{Упражнение}
@@ -91,11 +90,13 @@
 \newcommand{\Co}{\mathbb{C}}
 
 % Стили для курсовой по шаблону
-\usepackage{geometry} % Меняем поля страницы
+\usepackage{geometry} % поля страницы
 \geometry{left=3cm}% левое поле
 \geometry{right=1cm}% правое поле
 \geometry{top=2cm}% верхнее поле
 \geometry{bottom=2cm}% нижнее поле
+\usepackage{setspace}
+\onehalfspacing
 \renewcommand\contentsname{Содержание}
 \renewcommand{\theenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
 \renewcommand{\labelenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
@@ -103,7 +104,7 @@
 \renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}% Меняем везде перечисления на цифра.цифра
 \renewcommand{\theenumiii}{.\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
 \renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}% Меняем везде перечисления на цифра.цифра
-
+\usepackage{multirow}
 
 \begin{document}
 	\include{titlepage}
