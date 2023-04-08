@@ -30,9 +30,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: "Курсовая работа. Ляховой Д.С. Алгебраические кривые.pdf"
-      - uses: softprops/action-gh-release@v1
+      - uses: ncipollo/release-action@v1
         with:
-#           body_path: README.md
-          files: |
-            Курсовая работа. Ляховой Д.С. Алгебраические кривые.pdf
-#             README.md
+          artifacts: "Курсовая работа. Ляховой Д.С. Алгебраические кривые.pdf"
+#           bodyFile: "body.md"
