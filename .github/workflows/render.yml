@@ -34,6 +34,6 @@ jobs:
           name: "Курсовая работа. Ляховой Д.С. Алгебраические кривые.pdf"
       - uses: ncipollo/release-action@v1
         with:
-          skipIfReleaseExists: true
+          allowUpdates: true
           artifacts: "Курсовая работа. Ляховой Д.С. Алгебраические кривые.pdf"
 #           bodyFile: "body.md"
