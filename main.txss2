@@ -6,43 +6,43 @@
     "Session": {
         "Bookmarks": [
         ],
-        "CurrentFile": "main.tex",
+        "CurrentFile": "extras.tex",
         "FileVersion": 1,
         "Files": [
             {
-                "Col": 25,
+                "Col": 97,
                 "EditorGroup": 0,
                 "FileName": "main.tex",
-                "FirstLine": 61,
+                "FirstLine": 0,
                 "FoldedLines": "",
                 "Line": 111
             },
             {
-                "Col": 54,
+                "Col": 56,
                 "EditorGroup": 0,
                 "FileName": "chapter1.tex",
                 "FirstLine": 0,
                 "FoldedLines": "",
-                "Line": 6
+                "Line": 22
             },
             {
-                "Col": 44,
+                "Col": 22,
                 "EditorGroup": 0,
-                "FileName": "example-chapter.tex",
+                "FileName": "extras.tex",
                 "FirstLine": 0,
                 "FoldedLines": "",
-                "Line": 130
+                "Line": 26
             },
             {
-                "Col": 45,
+                "Col": 49,
                 "EditorGroup": 0,
                 "FileName": "bibliography.tex",
                 "FirstLine": 0,
                 "FoldedLines": "",
-                "Line": 20
+                "Line": 0
             }
         ],
         "MasterFile": "",
-        "VerticalSplit": true
+        "VerticalSplit": false
     }
 }
