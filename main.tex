@@ -89,46 +89,36 @@
 \DeclareMathOperator{\noreq}{\trianglelefteq}
 \newcommand{\Co}{\mathbb{C}}
 
-% Стили для курсовой по шаблону
+% ---- Стили для курсовой по шаблону -----
 \usepackage{geometry} % поля страницы
-\geometry{left=3cm}% левое поле
-\geometry{right=1cm}% правое поле
-\geometry{top=2cm}% верхнее поле
-\geometry{bottom=2cm}% нижнее поле
+\geometry{left=3cm}   % левое поле
+\geometry{right=1cm}  % правое поле
+\geometry{top=2cm}    % верхнее поле
+\geometry{bottom=2cm} % нижнее поле
 \usepackage{setspace}
 \onehalfspacing
-\renewcommand\contentsname{Содержание}
-\renewcommand{\theenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\labelenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\theenumii}{.\arabic{enumii}}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\theenumiii}{.\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}% Меняем везде перечисления на цифра.цифра
+
 \usepackage{multirow}
 
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.} % Заменяем библиографию с квадратных скобок на точку:
+\makeatother
+
+% ---- math -----
+\newcommand{\ges}{\geqslant}
+\newcommand{\les}{\leqslant}
+
 \begin{document}
+    \renewcommand{\contentsname}{Содержание} % не работает в преамбуле, необходимо по требованиям
+
+    \renewcommand\bibname{Список Источников} % не работает в преамбуле, необходимо по требованиям
+
 	\include{titlepage}
 	\tableofcontents
-	\newpage
 	\include{chapter1}
-
-	\begin{thebibliography}{99} %библиография
-		\bibitem{Volochkov}
-		Волочков А.А. Введение в теорию конечных групп./ / А.А.Волочков. --- Пермь, 2020.---233 стр. 58.
-		\bibitem{Kolmogorov}
-		Колмогоров А.Н., Фомин С.В. Элементы теории функции и функционального анализа.
-		\bibitem{Milnor}
-		Милнор Д., Уоллес А. Дифференциальная топология начальный курс.
-		\bibitem{Hirsh}
-		Хирш М. Дифференциальная топология.
-		\bibitem{Jurgen}
-		Jurgen J. Riemannian Geometry and Geometric.
-		\bibitem{Madsen}
-		Madsen. From Calculus to Cohomology
-		De Rnam no cohomology and characteristic classes
-		\bibitem{Lee}
-		John M. Lee Introduction to Smooth Manifolds.
-	\end{thebibliography}
+    \include{extras}
+%    \include{example-chapter}
+    \include{bibliography}
 
 
 \end{document}

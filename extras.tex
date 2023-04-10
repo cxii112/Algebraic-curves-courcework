@@ -1,0 +1,43 @@
+\chapter{Дополнение}
+\section*{}
+\begin{dfn}\label{projective-module}
+    Модуль $P$ над кольцом $R$ называется проективным, если для
+    любого эпиморфизма $f: N \twoheadrightarrow M$ $R$-модулей и любого морфизма $g: P \To M$ существует такой морфизм $h: P \To N$, что коммутативна диаграмма
+    $$
+        \begin{tikzcd}
+            & N \\
+            P & M
+            \arrow["g"', from=2-1, to=2-2]
+            \arrow["f", two heads, from=1-2, to=2-2]
+            \arrow["h", from=2-1, to=1-2]
+        \end{tikzcd}
+    $$
+\end{dfn}
+\begin{thm}\label{projectivity-criteria}
+    Модуль проективен тогда и только тогда, когда он является прямым слагаемым некоторого свободного модуля.
+\end{thm}
+\begin{thm}
+    Проективный модуль над локальным кольцом свободен.
+\end{thm}
+\begin{thm}
+    Пусть $R$ -- коммутативное кольцо, $\mathfrak{p}$ -- простой идеал в $R$. Если
+    $M$ -- проективный $R$-модуль, то $M_\mathfrak{p}$ -- свободный $R_\mathfrak{p}$-модуль.
+\end{thm}
+\begin{dfn}\label{rank-of-projective-module}
+    Проективный модуль $M$ над коммутативным кольцом $R$ имеет ранг $r \in \Z_{\ges 0}$, если для любого простого идеала $\mathfrak{p}$ кольца $R$ свободный $R_\mathfrak{p}$-модуль $M_\mathfrak{p}$ имеет (свободный) ранг $r$.
+\end{dfn}
+
+\begin{lem}\label{lem-isomorphism-b-modules}
+    Пусть $\phi: \; A \To B$ -- морфизм $k$-алгебр, $n \in \Z_{\ges 0}$, $S$, $T$ -- подмодули $A$-модуля $A^n$, $A^n = S \oplus T$. Тогда выполняются следующие утверждения:
+    \begin{enumerate}
+        \item Существует такой изоморфизм $B$-модулей
+        $$\psi : (B \otimes_{A} S) \oplus (B \otimes_{A} T) \To B^n,$$
+        что для всех $b \in B$, $s \in S$, $t \in T$
+        $$(b \otimes_{A} s, b \otimes_{A} t) \overset{\psi}{\mapsto} b(s + t).$$
+        \item
+        $$ \psi\left( \left(B \otimes_{A} S\right) \times \left\lbrace 0 \right\rbrace \right) = S^B $$
+        $$ \psi\left( \left\lbrace 0 \right\rbrace \times \left(B \otimes_{A} B\right)  \right) = T^B $$
+        $$ B^n = \left( A^n \right)^B = S^B \oplus T^B $$
+        \item Ранг проективного $B$-модуля $S^B$ равен рангу проективного $A$-модуля $S$. (\ref{rank-of-projective-module})
+    \end{enumerate}
+\end{lem}
