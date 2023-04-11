@@ -1,5 +1,28 @@
 \chapter{Дополнение}
-\section*{}
+\section{Идеалы}
+\begin{dfn}
+    Идеалом кольца $R$ называется произвольное подмножество $I \subseteq R$ такое, что
+    \begin{enumerate}
+        \item $I \neq \0$;
+        \item Если $a,b \in I$, то $a+b\in I$ (замкнутость по сложению);
+        \item Если $a \in I, b\in R$, то $ab \in I$ (замкнутость по умножению на элементы кольца~$R$).
+    \end{enumerate}
+\end{dfn}
+\begin{example}
+    Пусть $R$ -- кольцо. Подмножества $R,\left\lbrace 0\right\rbrace $ -- идеалы кольца $R$. Такие идеалы называются \textit{тривиальными}.
+\end{example}
+\begin{example}
+    Если $a \in R$, то множество
+    $$\left\langle a \right\rangle := \left\lbrace ab \;|\; b \in R \right\rbrace =: aR$$
+    --- \textit{главный идеал} $R$ порожденный элементом $a$.
+\end{example}
+\begin{example}
+    Пусть $R = \Z$, $m \in \Z$.\\
+    $$\left\langle m \right\rangle = m\Z = \left\lbrace mt \;|\; t\in \Z \right\rbrace $$
+    Где $\left\langle m \right\rangle $ -- идеал(притом главный) порожденный $m$.
+\end{example}
+
+\section{Модули и проективные модули}
 \begin{dfn}\label{projective-module}
     Модуль $P$ над кольцом $R$ называется проективным, если для
     любого эпиморфизма $f: N \twoheadrightarrow M$ $R$-модулей и любого морфизма $g: P \To M$ существует такой морфизм $h: P \To N$, что коммутативна диаграмма
