@@ -2,3 +2,6 @@
 *.toc
 *.log
 *.synctex
+main.out
+main.pdf
+main.synctex.gz
