@@ -41,6 +41,7 @@
 \theoremstyle{remark}
 \newtheorem{rem}[thm]{Замечание}
 \newtheorem{example}{Пример}[section]
+\newtheorem*{example*}{Пример}
 \numberwithin{equation}{section}
 \renewcommand{\proofname}{Доказательство}
 \numberwithin{equation}{section}
@@ -113,10 +114,10 @@
 
     \renewcommand\bibname{Список Источников} % не работает в преамбуле, необходимо по требованиям
 
-%	\include{titlepage}
+	\include{titlepage}
     \setcounter{page}{2}
 	\tableofcontents
     \include{extras}
-%	\include{grassmann-schemes}
+	\include{grassmann-schemes}
     \include{bibliography}
 \end{document}

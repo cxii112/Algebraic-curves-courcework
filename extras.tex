@@ -15,26 +15,46 @@
     Пусть $R$ -- коммутативное кольцо. Введем $n \in \N, M_n(R)$ и $k \in \N, k \les n$. Также, пусть идеал
     $$
         I =
-        \left\lbrace \begin{bmatrix}
+        \set{\begin{bmatrix}
             0 & \hdots & a_{1k} & \hdots & 0 \\
             & & \vdots & & \\
             0 & \hdots & a_{ik} & \hdots & 0 \\
             & & \vdots & & \\
             0 & \hdots & a_{nk} & \hdots & 0 \\
-        \end{bmatrix} \right\rbrace
+        \end{bmatrix}}
     $$
     Легко убедиться, что для любых $A,B \in I$ верно $A+B \in I$ и для любых $A \in M_n(R), B \in I$ справедливо $AB \in I$. Однако $BA \nin I$, что означает, что $I$ -- левый идеал, но не правый.
 \end{example*}
 \begin{example}
     Если $a \in R$, то множество
-    $$\left\langle a \right\rangle := \left\lbrace ab \;|\; b \in R \right\rbrace =: aR$$
+    $$\gen{a} := \set{ab \;|\; b \in R} =: aR = Ra$$
     --- \textit{главный идеал} $R$ порожденный элементом $a$.
-\end{example*}
+\end{example}
 \begin{example*}
     Пусть $R = \Z$, $m \in \Z$.\\
-    $$\left\langle m \right\rangle = m\Z = \left\lbrace mt \;|\; t\in \Z \right\rbrace $$
-    Где $\left\langle m \right\rangle $ -- идеал(притом главный) порожденный $m$.
+    $$\gen{m} = m\Z = \set{mt \;|\; t\in \Z}$$
+    Где $\gen{m}$ -- идеал(притом главный) порожденный $m$.
 \end{example*}
+
+\begin{dfn}
+    Подмножество $S$ кольца $R$ называется мультипликативным, если
+    \begin{enumerate}
+        \item $1 \in S$ (где $1$ -- нейтральный по умножению элемент);
+        \item Для любых $a,b \in S: \; ab \in S$.
+    \end{enumerate}
+\end{dfn}
+
+\begin{dfn}
+    Кольцо $R$ -- целостное, если оно не нулевое и для любых ненулевых $a,b \in R : \; ab \neq 0$.
+\end{dfn}
+
+\begin{dfn}
+    Идеал $I$ кольца $R$ --- простой, если выполняется хотя бы одно из утверждений
+    \begin{enumerate}
+        \item $R \setminus I$ -- мультипликативное подмножество;
+        \item $R/I$ -- целостное кольцо.
+    \end{enumerate}
+\end{dfn}
 
 \section{Модули и проективные модули}
 \begin{dfn}\label{projective-module}
@@ -72,8 +92,8 @@
         что для всех $b \in B$, $s \in S$, $t \in T$
         $$(b \otimes_{A} s, b \otimes_{A} t) \overset{\psi}{\mapsto} b(s + t);$$
         \item
-        $$ \psi\left( \left(B \otimes_{A} S\right) \times \left\lbrace 0 \right\rbrace \right) = S^B, $$
-        $$ \psi\left( \left\lbrace 0 \right\rbrace \times \left(B \otimes_{A} B\right)  \right) = T^B, $$
+        $$ \psi\left( \left(B \otimes_{A} S\right) \times \set{0} \right) = S^B, $$
+        $$ \psi\left( \set{0} \times \left(B \otimes_{A} B\right)  \right) = T^B, $$
         $$ B^n = \left( A^n \right)^B = S^B \oplus T^B; $$
         \item Ранг проективного $B$-модуля $S^B$ равен рангу проективного $A$-модуля $S$. (\ref{rank-of-projective-module})
     \end{enumerate}
