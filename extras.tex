@@ -8,19 +8,33 @@
         \item Если $a \in I, b\in R$, то $ab \in I$ (замкнутость по умножению на элементы кольца~$R$).
     \end{enumerate}
 \end{dfn}
-\begin{example}
+\begin{example*}
     Пусть $R$ -- кольцо. Подмножества $R,\left\lbrace 0\right\rbrace $ -- идеалы кольца $R$. Такие идеалы называются \textit{тривиальными}.
-\end{example}
+\end{example*}
+\begin{example*}
+    Пусть $R$ -- коммутативное кольцо. Введем $n \in \N, M_n(R)$ и $k \in \N, k \les n$. Также, пусть идеал
+    $$
+        I =
+        \left\lbrace \begin{bmatrix}
+            0 & \hdots & a_{1k} & \hdots & 0 \\
+            & & \vdots & & \\
+            0 & \hdots & a_{ik} & \hdots & 0 \\
+            & & \vdots & & \\
+            0 & \hdots & a_{nk} & \hdots & 0 \\
+        \end{bmatrix} \right\rbrace
+    $$
+    Легко убедиться, что для любых $A,B \in I$ верно $A+B \in I$ и для любых $A \in M_n(R), B \in I$ справедливо $AB \in I$. Однако $BA \nin I$, что означает, что $I$ -- левый идеал, но не правый.
+\end{example*}
 \begin{example}
     Если $a \in R$, то множество
     $$\left\langle a \right\rangle := \left\lbrace ab \;|\; b \in R \right\rbrace =: aR$$
     --- \textit{главный идеал} $R$ порожденный элементом $a$.
-\end{example}
-\begin{example}
+\end{example*}
+\begin{example*}
     Пусть $R = \Z$, $m \in \Z$.\\
     $$\left\langle m \right\rangle = m\Z = \left\lbrace mt \;|\; t\in \Z \right\rbrace $$
     Где $\left\langle m \right\rangle $ -- идеал(притом главный) порожденный $m$.
-\end{example}
+\end{example*}
 
 \section{Модули и проективные модули}
 \begin{dfn}\label{projective-module}
