@@ -1,4 +1,35 @@
-\chapter{Дополнение}
+\chapter{Предварительные сведения}
+
+\section{Алгебра}
+\begin{dfn}
+    Пусть $M_1, M_2$ -- подмодули $M$. Сумма $M_1 + M_2 = M$ --- прямая (обозначается $M_1 \oplus M_2$),
+    когда $M_1 \cap M_2 = {0}$.
+\end{dfn}
+\begin{dfn}
+    $S$ выделяется прямым слагаемым в $M$, когда $\exists T$: $M = S \oplus T$
+\end{dfn}
+Также в дальнейшем будем полагать, что все кольца -- коммутативны.
+
+\section{Локализация}
+\begin{dfn}
+    Пусть $S$ -- мультипликативное подмножество кольца $R, M$ —
+    $R$-модуль. Морфизм $R$-модулей $\lambda : M \To L$ и $R$-модуль $L$ называются локализацией $M$ по $S$, если выполняются следующие условия:
+    \begin{enumerate}
+        \item  $S_L \subseteq GL_R(L)$;
+        \item для любого морфизма $R$-модулей $\lambda' : M \To L'$, для которого $S_L' \subseteq  GL_R(L')$,
+        существует и единственен такой морфизм $\phi : L \To L'$, что коммутативна диаграмма
+        % https://q.uiver.app/?q=WzAsMyxbMCwxLCJNIl0sWzEsMCwiTCJdLFsyLDEsIkwnIl0sWzAsMSwiXFxsYW1iZGEiXSxbMCwyLCJcXGxhbWJkYSciLDJdLFsxLDIsIlxccGhpIl1d
+        \[\begin{tikzcd}
+            & L \\
+            M && {L'}
+            \arrow["\lambda", from=2-1, to=1-2]
+            \arrow["{\lambda'}"', from=2-1, to=2-3]
+            \arrow["\phi", from=1-2, to=2-3]
+        \end{tikzcd}\]
+    \end{enumerate}
+\end{dfn}
+
+
 \section{Идеалы}
 \begin{dfn}
     Идеалом кольца $R$ называется произвольное подмножество $I \subseteq R$ такое, что
@@ -11,29 +42,31 @@
 \begin{example*}
     Пусть $R$ -- кольцо. Подмножества $R,\left\lbrace 0\right\rbrace $ -- идеалы кольца $R$. Такие идеалы называются \textit{тривиальными}.
 \end{example*}
-\begin{example*}
-    Пусть $R$ -- коммутативное кольцо. Введем $n \in \N, M_n(R)$ и $k \in \N, k \les n$. Также, пусть идеал
-    $$
-        I =
-        \set{\begin{bmatrix}
-            0 & \hdots & a_{1k} & \hdots & 0 \\
-            & & \vdots & & \\
-            0 & \hdots & a_{ik} & \hdots & 0 \\
-            & & \vdots & & \\
-            0 & \hdots & a_{nk} & \hdots & 0 \\
-        \end{bmatrix}}
-    $$
-    Легко убедиться, что для любых $A,B \in I$ верно $A+B \in I$ и для любых $A \in M_n(R), B \in I$ справедливо $AB \in I$. Однако $BA \nin I$, что означает, что $I$ -- левый идеал, но не правый.
-\end{example*}
-\begin{example}
+%\begin{example*}
+%    Пусть $R$ -- кольцо. Введем $n \in \N, M_n(R)$ и $k \in \N, k \les n$. Также, пусть идеал
+%    $$
+%        I =
+%        \set{\begin{bmatrix}
+%            0 & \hdots & a_{1k} & \hdots & 0 \\
+%            & & \vdots & & \\
+%            0 & \hdots & a_{ik} & \hdots & 0 \\
+%            & & \vdots & & \\
+%            0 & \hdots & a_{nk} & \hdots & 0 \\
+%        \end{bmatrix}}
+%    $$
+%    Для данного примера временно введем обозначение: $A^{(p)}$ -- $p$-й столбец матрицы и %$(AB)^{(p)} = AB^{(p)}$.
+%    Таким образом, легко убедиться, что для любых $A,B \in I$ верно $(A+B) \in I$ и
+%     при $p \neq k$, $(AB)^{(p)} = AB^{(p)} = A0 = 0$.
+%     Однако $BA \nin I$, что означает, что $I$ -- левый идеал, но не правый.
+%\end{example*}
+\begin{dfn}
     Если $a \in R$, то множество
     $$\gen{a} := \set{ab \;|\; b \in R} =: aR = Ra$$
     --- \textit{главный идеал} $R$ порожденный элементом $a$.
-\end{example}
+\end{dfn}
 \begin{example*}
     Пусть $R = \Z$, $m \in \Z$.\\
     $$\gen{m} = m\Z = \set{mt \;|\; t\in \Z}$$
-    Где $\gen{m}$ -- идеал(притом главный) порожденный $m$.
 \end{example*}
 
 \begin{dfn}
@@ -45,7 +78,7 @@
 \end{dfn}
 
 \begin{dfn}
-    Кольцо $R$ -- целостное, если оно не нулевое и для любых ненулевых $a,b \in R : \; ab \neq 0$.
+    Кольцо $R$ называется целостным, если оно не нулевое и для любых ненулевых $a,b \in R : \; ab \neq 0$.
 \end{dfn}
 
 \begin{dfn}
@@ -57,6 +90,9 @@
 \end{dfn}
 
 \section{Модули и проективные модули}
+\begin{dfn}\label{free-module}
+    Модуль \textit{свободный}\cite{Lang}, если имеет базис или нулевой.
+\end{dfn}
 \begin{dfn}\label{projective-module}
     Модуль $P$ над кольцом $R$ называется проективным, если для
     любого эпиморфизма $f: N \twoheadrightarrow M$ $R$-модулей и любого морфизма $g: P \To M$ существует такой морфизм $h: P \To N$, что коммутативна диаграмма
