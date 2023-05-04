@@ -3,24 +3,24 @@
 \section{Функторы Грассмана}
 
 \begin{dfn}
-    Пусть $r, n \in N$. Для любой $k$-алгебры $A$ определим $\mathcal{G}r_{n,r}(A)$ как множество таких подмодулей $S$ $A$-модуля $A^{r+n}$, что
+    Пусть $r, n \in N$. Для любой $k$-алгебры $A$ определим $\mathcal{G}_{n,r}(A)$ как множество таких подмодулей $S$ $A$-модуля $A^{r+n}$, что
     \begin{enumerate}
         \item $S$ выделяется прямым слагаемым в $A^{r+n}$, то есть $A^{r+n} = S \oplus T$ для некоторого подмодуля $T$ в $A^{r+n}$ (в частности, в силу \ref{projectivity-criteria}, $S$ -- проективный $A$-модуль);
         \item $A$-модуль $S$ имеет ранг $r$.
     \end{enumerate}
 \end{dfn}
 
-Для любого морфизма $\phi: \space A \To B$ пусть $S \in \mathcal{G}r_{n,r}(A)$ и $S^{B} \in \mathcal{G}r_{n,r}(B)$ (в силу \ref{lem-isomorphism-b-modules}). Тогда построим естественное отображение $\mathcal{G}r_{n,r}(\phi):\;\mathcal{G}r_{n,r}(A) \To \mathcal{G}r_{n,r}(B)$ определим как $S \mapsto S^B$.
+Для любого морфизма $\phi: \space A \To B$ пусть $S \in \mathcal{G}_{n,r}(A)$ и $S^{B} \in \mathcal{G}_{n,r}(B)$ (в силу \ref{lem-isomorphism-b-modules}). Тогда построим естественное отображение $\mathcal{G}_{n,r}(\phi):\;\mathcal{G}_{n,r}(A) \To \mathcal{G}_{n,r}(B)$ определим как $S \mapsto S^B$.
 
-Докажем, что $\mathcal{G}r_{n,r}$ — $k$-функтор.
+Докажем, что $\mathcal{G}_{n,r}$ — $k$-функтор.
 \begin{proof}
     Пусть $A \overset{\alpha}{\To} B \overset{\beta}{\To} C$ -- морфизмы $k$-алгебр.\\
-    Покажем, что $\mathcal{G}r_{n,r}(\beta\alpha) = \mathcal{G}r_{n,r}(\beta)\mathcal{G}r_{n,r}(\alpha)$.
-    Пусть $S \in \mathcal{G}r_{n,r}(A)$.
+    Покажем, что $\mathcal{G}_{n,r}(\beta\alpha) = \mathcal{G}_{n,r}(\beta)\mathcal{G}_{n,r}(\alpha)$.
+    Пусть $S \in \mathcal{G}_{n,r}(A)$.
     \begin{align*}
-        \left( \mathcal{G}r_{n,r}(\beta)\mathcal{G}r_{n,r}(\alpha) \right)(S) &= \mathcal{G}r_{n,r}(\beta)\left(\mathcal{G}r_{n,r}(\alpha)(S)\right) = \\
-        \mathcal{G}r_{n,r}(\beta)\left(\gen{\alpha(S)}_B \right) &= \gen{\beta\left( \gen{\alpha(S)}_B \right)}_C = \gen{\gen{(\beta\alpha)(S)}_B}_C = \\
-        \gen{(\beta\alpha)(S)}_C &= \mathcal{G}r_{n,r}(\beta\alpha)(S).
+        \left( \mathcal{G}_{n,r}(\beta)\mathcal{G}_{n,r}(\alpha) \right)(S) &= \mathcal{G}_{n,r}(\beta)\left(\mathcal{G}_{n,r}(\alpha)(S)\right) = \\
+        \mathcal{G}_{n,r}(\beta)\left(\gen{\alpha(S)}_B \right) &= \gen{\beta\left( \gen{\alpha(S)}_B \right)}_C = \gen{\gen{(\beta\alpha)(S)}_B}_C = \\
+        \gen{(\beta\alpha)(S)}_C &= \mathcal{G}_{n,r}(\beta\alpha)(S).
     \end{align*}
-    Мы доказали, что $\mathcal{G}r_{n,r}$ — $k$-функтор.
+    Мы доказали, что $\mathcal{G}_{n,r}$ — $k$-функтор.
 \end{proof}
