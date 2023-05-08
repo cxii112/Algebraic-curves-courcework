@@ -1,19 +1,264 @@
 \chapter{Предварительные сведения}
 
+
+
+В этой главе введем необходимые для дальнейшей работы определения, леммы и теоремы. Также в данной работе будем полагать, что <<кольцо>> означает <<коммутативное кольцо>>, если явным образом не оговаривается иное.
+
 \section{Алгебра}
+
 \begin{dfn}
-    Пусть $M_1, M_2$ -- подмодули $M$. Сумма $M_1 + M_2 = M$ --- прямая (обозначается $M_1 \oplus M_2$),
-    когда $M_1 \cap M_2 = {0}$.
+    Пусть $L$ -- кольцо. Множество $L^*$ называется \textit{множеством обратимых элементов кольца $L$} и определяется следующим образом
+    $$
+    L^* = \set{l\in L|\exists l' \in L: ll' = l'l = 1_L}
+    $$
 \end{dfn}
+
+% TODO привести больше примеров множеств обратимых элементов
+
 \begin{dfn}
-    $S$ выделяется прямым слагаемым в $M$, когда $\exists T$: $M = S \oplus T$
+    Пусть $R$ -- кольцо. Левый модуль $M$ кольца $R$ или левый $R$-модуль $M$, если для любых $a,b \in R$ и $x,y \in M$ выполняется следующее:
+    \begin{enumerate}
+        \item $(a + b)x = ax + bx$;
+        \item $a(x + y) = ax + ay$.
+    \end{enumerate}
 \end{dfn}
-Также в дальнейшем будем полагать, что все кольца -- коммутативны.
+
+Аналогичным образом определяется правый $R$-модуль.
+Если модуль $M$ является одновременно левым и правым, то будем называть его просто $R$-модуль.
+
+\begin{dfn}
+    Пусть $A,B$ -- кольца. Отображение $f: A \To B$ называется \textit{морфизмом колец}, если:
+    \begin{enumerate}
+        \item $f(1) = 1$;
+        \item $f(x + y) = f(x) + f(y)$;
+        \item $f(xy) = f(x)f(y)$.
+    \end{enumerate}
+\end{dfn}
+
+\begin{dfn}\cite[стр. 119]{Lang}
+    Пусть $M, M'$ -- модули кольца $R$. Морфизмом модулей будем называть отображение такое $f: M \To M'$, что для любых $a,b \in R$ и $x,y \in M$ выполняется:
+    $$
+    f(ax + by) = af(x) + bf(y)
+    $$
+\end{dfn}
+
+\section{Идеалы}
+
+\begin{dfn}
+    \textit{Идеалом кольца} $R$ называется произвольное подмножество $I \subseteq R$ такое, что
+    \begin{enumerate}
+        \item $I \neq \0$;
+        \item Если $a,b \in I$, то $a+b\in I$ (замкнутость по сложению);
+        \item Если $a \in I, b\in R$, то $ab \in I$ (замкнутость по умножению на элементы кольца~$R$).
+    \end{enumerate}
+\end{dfn}
+
+\begin{example*}
+    Пусть $R$ -- кольцо. Подмножества $R,\left\lbrace 0\right\rbrace $ -- идеалы кольца $R$.
+    Такие идеалы называются \textit{тривиальными}.
+\end{example*}
+%\begin{example*}
+%    Пусть $R$ -- кольцо. Введем $n \in \N, M_n(R)$ и $k \in \N, k \les n$. Также, пусть идеал
+%    $$
+%        I =
+%        \set{\begin{bmatrix}
+        %            0 & \hdots & a_{1k} & \hdots & 0 \\
+        %            & & \vdots & & \\
+        %            0 & \hdots & a_{ik} & \hdots & 0 \\
+        %            & & \vdots & & \\
+        %            0 & \hdots & a_{nk} & \hdots & 0 \\
+        %        \end{bmatrix}}
+%    $$
+%    Для данного примера временно введем обозначение: $A^{(p)}$ -- $p$-й столбец матрицы и %$(AB)^{(p)} = AB^{(p)}$.
+%    Таким образом, легко убедиться, что для любых $A,B \in I$ верно $(A+B) \in I$ и
+%     при $p \neq k$, $(AB)^{(p)} = AB^{(p)} = A0 = 0$.
+%     Однако $BA \nin I$, что означает, что $I$ -- левый идеал, но не правый.
+%\end{example*}
+\begin{dfn}
+    Если $a \in R$, то множество
+    $$\gen{a} := \set{ab \;|\; b \in R} =: aR = Ra$$
+    --- \textit{главный идеал} $R$, порожденный элементом $a$.
+\end{dfn}
+
+\begin{example*}
+    Пусть $R = \Z$, $m \in \Z$.\\
+    $$\gen{m} = m\Z = \set{mt \;|\; t\in \Z}$$
+\end{example*}
+
+\begin{dfn}
+    Подмножество $S$ кольца $R$ называется \textit{мультипликативным}, если
+    \begin{enumerate}
+        \item $1 \in S$ (где $1$ -- нейтральный по умножению элемент кольца $R$);
+        \item Для любых $a,b \in S: \; ab \in S$.
+    \end{enumerate}
+\end{dfn}
+
+\begin{dfn}
+    Кольцо $R$ называется \textit{целостным}, если оно ненулевое и для любых ненулевых $a,b \in R : \; ab \neq 0$.
+\end{dfn}
+
+\begin{dfn}
+    \textit{Полем} называется кольцо, все ненулевые элементы которого обратимы.
+\end{dfn}
+
+\begin{dfn}\cite[стр. 92]{Lang}
+    Идеал $I$ кольца $R$ --- \textit{простой}, если $I \neq R$ и всякий раз, когда $a,b \in R$ и $ab \in I$, тогда $a \in I$ или $b \in I$.
+\end{dfn}
+
+\begin{dfn}\cite[стр. 92]{Lang}
+    Идеал $I$ кольца $R$--- \textit{максимальный}, если $I \neq R$ и нет такого идеала $I'$ отличного от $I$ и содержащего его.
+\end{dfn}
+
+\begin{thm}\cite[стр. 92]{Lang}
+    Любой максимальный идеал --- простой.
+\end{thm}
+
+\begin{example*}
+    Пусть $I$ -- простой идеал кольца $R$, тогда $R \setminus I$ --- мультипликативное подмножество.
+\end{example*}
+
+\begin{example*}
+    Пусть $f \in R$, $S = \set{f^n|n\in \Z_{\ges 0}}$, тогда $S$ --- мультипликативное подмножество $R$.
+\end{example*}
+
+\begin{thm}\cite[стр. 92]{Volochkov}
+    Идеал $I$ кольца $R$ --- максимальный тогда и только тогда, когда $R/I$ -- поле.
+\end{thm}
+
+\begin{dfn}
+    Кольцо называется \textit{локальным}, если оно имеет ровно один максимальный идеал.
+\end{dfn}
+
+\begin{thm}\label{assertion-eq-thm}\cite[стр. 91]{Volochkov}
+    Если $I$ -- идеал кольца $R$, то равносильны следующие утверждения:
+    \begin{enumerate}
+        \item $R \setminus I$ -- мультипликативное подмножество;
+        \item $R/I$ -- целостное кольцо.
+    \end{enumerate}
+\end{thm}
+
+\begin{dfn}
+    Идеал $I$ кольца $R$ --- \textit{простой}, если выполняется хотя бы одно из утверждений теоремы \ref{assertion-eq-thm}.
+\end{dfn}
 
 \section{Локализация}
+
+\begin{dfn}
+    Пусть $S$ -- мультипликативное подмножество кольца $A$. Морфизм колец $\lambda: A \To L$ и кольцо $L$ называются \textit{локализацией $A$ по $S$}, если $\lambda(S) \subseteq L^*$ и для любого морфизма $\lambda': A \To L'$, такого что $\lambda'(S) \subseteq (L')^*$ существует единственный морфизм $\phi: L \To L'$, для которого коммутативна диаграмма
+    % https://q.uiver.app/?q=WzAsMyxbMCwxLCJBIl0sWzEsMCwiTCJdLFsyLDEsIkwnIl0sWzAsMSwiXFxsYW1iZGEiXSxbMSwyLCJcXHBoaSJdLFswLDIsIlxcbGFtYmRhJyIsMl1d
+    \[\begin{tikzcd}
+        & L \\
+        A && {L'}
+        \arrow["\lambda", from=2-1, to=1-2]
+        \arrow["\phi", from=1-2, to=2-3]
+        \arrow["{\lambda'}"', from=2-1, to=2-3]
+    \end{tikzcd}\]
+\end{dfn}
+
+\begin{thm}\cite[стр. 94]{Volochkov}
+     Пусть $S$ -- мультипликативное подмножество кольца $A$. $\lambda: A \To L$ и $\lambda': A \To L'$ -- локализации $A$ по $S$. Тогда существует единственный изоморфизм $\phi: L \To L'$, для которого коммутативна диаграмма
+     % https://q.uiver.app/?q=WzAsMyxbMCwxLCJBIl0sWzEsMCwiTCJdLFsyLDEsIkwnIl0sWzAsMSwiXFxsYW1iZGEiXSxbMSwyLCJcXHBoaSJdLFswLDIsIlxcbGFtYmRhJyIsMl1d
+     \[\begin{tikzcd}
+         & L \\
+         A && {L'}
+         \arrow["\lambda", from=2-1, to=1-2]
+         \arrow["\phi", from=1-2, to=2-3]
+         \arrow["{\lambda'}"', from=2-1, to=2-3]
+     \end{tikzcd}\]
+\end{thm}
+
+\begin{thm}\cite[стр. 94]{Volochkov}
+     Пусть $S$ -- мультипликативное подмножество кольца $A$. Тогда существует локализация $A$ по $S$.
+\end{thm}
+
+\begin{thm}\cite[стр. 96]{Volochkov}
+    Пусть $S$ -- мультипликативное подмножество кольца $A$, $\lambda: A \To L$ -- локализация $A$ по $S$.
+    Если $a \in A$, то $\lambda(a) = 0$ $\Leftrightarrow$ $as = 0$ для некоторого $s \in S$.
+\end{thm}
+
+\begin{thm}\cite[стр. 97]{Volochkov}
+    Пусть $S$ -- мультипликативное подмножество кольца $A$, $\lambda: A \To L$ -- локализация $A$ по $S$.
+    Тогда равносильны следующие условия:
+    \begin{enumerate}
+        \item $L = \{0\}$;
+        \item $0 \in S$.
+    \end{enumerate}
+\end{thm}
+
+\begin{dfn}
+    \textit{Радикалом $\sqrt{}I$ идеала} $I$ кольца $R$ назовем множество
+    $$
+    \{a\in R | (\exists n\in\N ) (a^n \in I)\}
+    $$
+\end{dfn}
+
+\begin{dfn}
+    Радикал нулевого идеала кольца $R$ назовем \textit{нильрадикалом} $R$ и обозначим $\operatorname{rad}(R)$. Таким образом,
+    $$
+    \operatorname{rad}(R) = \{a\in R | (\exists n\in\N ) (a^n = 0)\}
+    $$
+\end{dfn}
+
+\begin{thm}\cite[стр. 97]{Volochkov}
+    Пусть $I$ -- идеал кольца $R$. Тогда $\sqrt{}I$ совпадает с пересечением всех простых идеалов содержащих $I$.
+\end{thm}
+
+\begin{cor}
+    Пусть $R$ -- кольцо. Тогда $\operatorname{rad}(R)$ совпадает с пересечением всех простых идеалов кольцо $R$.
+\end{cor}
+
+% TODO Перед этой теоремой нужно определить локализацию кольца R по его элементу f - это его лок-я по мультипл-му подмн-ву \set{f^n : n \in \mathbb{Z}_{\geq 0}}.
+
+% TODO Ann(a) тоже определите.
+
+\begin{thm}\cite[стр. 98]{Volochkov}
+    Пусть $A$ -- кольцо, $f\in A$, $\lambda: A \To L$ -- локализация $A$ по $f$, $a \in A$. Тогда равносильны следующие условия:
+    \begin{enumerate}
+        \item $\lambda(a) = 0$;
+        \item $af^n = 0$, для некоторого $n \in \Z_{\ges}$;
+        \item $f \in \sqrt{\operatorname{Ann}(a)}$.
+    \end{enumerate}
+\end{thm}
+
+% TODO Теорема 1.2.13. Перед этим  нужно определить локализацию кольца R по его простому идеалу \mathfrak{p} - это лок-я R по его моульт-му подмн-ву R\setminus\mathfrak{p}.
+
+\begin{thm}\cite[стр. 98]{Volochkov}
+    Пусть $S$ -- мультипликативное подмножество кольца $A$, $\lambda: A \To L$ -- морфизм колец. Тогда равносильны следующие условия:
+    \begin{enumerate}
+        \item $\lambda$ -- локализация $A$ по $S$;
+        \item $(a)$ $\lambda(S) \subseteq L^*$ \\
+            $(b)$ $L = \set{\lambda(a)/\lambda(s)|a\in A, s\in S}$ \\
+            $(c)$ $\forall a\in A \; \lambda(a)=0 \Leftrightarrow as=0$ для некоторого $S$.
+    \end{enumerate}
+\end{thm}
+
+\begin{example*}
+    Пусть $B$ -- кольцо, $A$ -- его подкольцо, $S$ -- мультипликативное подмножество кольца $A$, $S \subseteq B^*$, $L = \set{a/s|a\in A, s\in S}$, $\lambda: A\To L$, $\lambda(a) = a$. Тогда $\lambda$ -- локализация $A$ по $S$.
+\end{example*}
+
+\begin{thm}\cite[стр. 99]{Volochkov}
+    Пусть $f: A\To B$ -- гомоморфизм колец, $S$ -- мультипликативное подмножество $A$, $T$ -- мультипликативное подмножество $B$, $f(S) \subseteq T$, $\alpha: A \To A'$ -- локализация $A$ по $S$, $\beta: B \To B'$ -- локализация $B$ по $T$. Тогда существует единственный такой гомоморфизм $f': A' \To B'$, что коммутативна диаграмма
+    % https://q.uiver.app/?q=WzAsNCxbMCwxLCJBIl0sWzAsMCwiQSciXSxbMSwxLCJCIl0sWzEsMCwiQiciXSxbMCwyLCJmIiwyXSxbMCwxLCJcXGFscGhhIl0sWzEsMywiZiciXSxbMiwzLCJcXGJldGEiLDJdXQ==
+    \[\begin{tikzcd}
+        {A'} & {B'} \\
+        A & B
+        \arrow["f"', from=2-1, to=2-2]
+        \arrow["\alpha", from=2-1, to=1-1]
+        \arrow["{f'}", from=1-1, to=1-2]
+        \arrow["\beta"', from=2-2, to=1-2]
+    \end{tikzcd}\]
+\end{thm}
+
+\begin{thm}\cite[стр. 100]{Volochkov}
+    Пусть $\mathfrak{p}$ -- простой идеал кольца $R$ и $\lambda: R \To L$ -- локализация $R$ в $\mathfrak{p}$. Тогда $L$ -- локальное кольцо с максимальным идеалом
+    $$
+    \mathfrak{m} = \set{\lambda(a)/\lambda(b)|a\in R, b\in R \setminus \mathfrak{p}}
+    $$
+\end{thm}
+
 \begin{dfn}
     Пусть $S$ -- мультипликативное подмножество кольца $R, M$ —
-    $R$-модуль. Морфизм $R$-модулей $\lambda : M \To L$ и $R$-модуль $L$ называются локализацией $M$ по $S$, если выполняются следующие условия:
+    $R$-модуль. Морфизм $R$-модулей $\lambda : M \To L$ и $R$-модуль $L$ называются \textit{локализацией $M$ по $S$}, если выполняются следующие условия:
     \begin{enumerate}
         \item  $S_L \subseteq GL_R(L)$;
         \item для любого морфизма $R$-модулей $\lambda' : M \To L'$, для которого $S_L' \subseteq  GL_R(L')$,
@@ -29,72 +274,30 @@
     \end{enumerate}
 \end{dfn}
 
+\section{Модули}
 
-\section{Идеалы}
 \begin{dfn}
-    Идеалом кольца $R$ называется произвольное подмножество $I \subseteq R$ такое, что
+    Модуль $M$ является \textit{прямой суммой} своих подмодулей $M_1$, $M_2$, если для любого $m \in M$ найдутся единственный $m_1 \in M_1$ и единственный $m_2 \in M_2$, такие, что $m = m_1 + m_2$. Выражение <<\textit{$M$ является прямой суммой $M_1$ и $M_2$}>> будем записывать $M = M_1 \oplus M_2$.
+\end{dfn}
+
+\begin{thm}
+    Пусть $M$ модуль над кольцом $R$, тогда равносильны следующие условия:
     \begin{enumerate}
-        \item $I \neq \0$;
-        \item Если $a,b \in I$, то $a+b\in I$ (замкнутость по сложению);
-        \item Если $a \in I, b\in R$, то $ab \in I$ (замкнутость по умножению на элементы кольца~$R$).
+        \item $M = M_1 \oplus M_2$;
+        \item $M = M_1 + M_2$ и $M_1 \cap M_2 = \{0\}$.
     \end{enumerate}
-\end{dfn}
-\begin{example*}
-    Пусть $R$ -- кольцо. Подмножества $R,\left\lbrace 0\right\rbrace $ -- идеалы кольца $R$. Такие идеалы называются \textit{тривиальными}.
-\end{example*}
-%\begin{example*}
-%    Пусть $R$ -- кольцо. Введем $n \in \N, M_n(R)$ и $k \in \N, k \les n$. Также, пусть идеал
-%    $$
-%        I =
-%        \set{\begin{bmatrix}
-%            0 & \hdots & a_{1k} & \hdots & 0 \\
-%            & & \vdots & & \\
-%            0 & \hdots & a_{ik} & \hdots & 0 \\
-%            & & \vdots & & \\
-%            0 & \hdots & a_{nk} & \hdots & 0 \\
-%        \end{bmatrix}}
-%    $$
-%    Для данного примера временно введем обозначение: $A^{(p)}$ -- $p$-й столбец матрицы и %$(AB)^{(p)} = AB^{(p)}$.
-%    Таким образом, легко убедиться, что для любых $A,B \in I$ верно $(A+B) \in I$ и
-%     при $p \neq k$, $(AB)^{(p)} = AB^{(p)} = A0 = 0$.
-%     Однако $BA \nin I$, что означает, что $I$ -- левый идеал, но не правый.
-%\end{example*}
-\begin{dfn}
-    Если $a \in R$, то множество
-    $$\gen{a} := \set{ab \;|\; b \in R} =: aR = Ra$$
-    --- \textit{главный идеал} $R$ порожденный элементом $a$.
-\end{dfn}
-\begin{example*}
-    Пусть $R = \Z$, $m \in \Z$.\\
-    $$\gen{m} = m\Z = \set{mt \;|\; t\in \Z}$$
-\end{example*}
+\end{thm}
 
 \begin{dfn}
-    Подмножество $S$ кольца $R$ называется мультипликативным, если
-    \begin{enumerate}
-        \item $1 \in S$ (где $1$ -- нейтральный по умножению элемент);
-        \item Для любых $a,b \in S: \; ab \in S$.
-    \end{enumerate}
+    Подмодуль $S$ модуля $M$ \textit{выделяется прямым слагаемым}, если найдется такой подмодуль $T$ модуля $M$, что $M = S \oplus T$.
 \end{dfn}
 
-\begin{dfn}
-    Кольцо $R$ называется целостным, если оно не нулевое и для любых ненулевых $a,b \in R : \; ab \neq 0$.
+\begin{dfn}\label{free-module}\cite[стр. 135]{Lang}
+    Модуль \textit{свободный}, если имеет базис или нулевой.
 \end{dfn}
 
-\begin{dfn}
-    Идеал $I$ кольца $R$ --- простой, если выполняется хотя бы одно из утверждений
-    \begin{enumerate}
-        \item $R \setminus I$ -- мультипликативное подмножество;
-        \item $R/I$ -- целостное кольцо.
-    \end{enumerate}
-\end{dfn}
-
-\section{Модули и проективные модули}
-\begin{dfn}\label{free-module}
-    Модуль \textit{свободный}\cite{Lang}, если имеет базис или нулевой.
-\end{dfn}
 \begin{dfn}\label{projective-module}
-    Модуль $P$ над кольцом $R$ называется проективным, если для
+    Модуль $P$ над кольцом $R$ называется \textit{проективным}, если для
     любого эпиморфизма $f: N \twoheadrightarrow M$ $R$-модулей и любого морфизма $g: P \To M$ существует такой морфизм $h: P \To N$, что коммутативна диаграмма
     $$
         \begin{tikzcd}
@@ -106,16 +309,20 @@
         \end{tikzcd}
     $$
 \end{dfn}
+
 \begin{thm}\label{projectivity-criteria}
     Модуль проективен тогда и только тогда, когда он является прямым слагаемым некоторого свободного модуля.
 \end{thm}
+
 \begin{thm}
     Проективный модуль над локальным кольцом свободен.
 \end{thm}
+
 \begin{thm}
     Пусть $R$ -- коммутативное кольцо, $\mathfrak{p}$ -- простой идеал в $R$. Если
     $M$ -- проективный $R$-модуль, то $M_\mathfrak{p}$ -- свободный $R_\mathfrak{p}$-модуль.
 \end{thm}
+
 \begin{dfn}\label{rank-of-projective-module}
     Проективный модуль $M$ над коммутативным кольцом $R$ имеет ранг $r \in \Z_{\ges 0}$, если для любого простого идеала $\mathfrak{p}$ кольца $R$ свободный $R_\mathfrak{p}$-модуль $M_\mathfrak{p}$ имеет (свободный) ранг $r$.
 \end{dfn}
@@ -134,3 +341,10 @@
         \item Ранг проективного $B$-модуля $S^B$ равен рангу проективного $A$-модуля $S$. (\ref{rank-of-projective-module})
     \end{enumerate}
 \end{lem}
+
+\begin{dfn}\cite[стр. 165]{Cohn}
+    Пусть $R$ -- кольцо. Под $k$-алгеброй будем понимать кольцо $A$, являющееся $R$-модулем, если в дополнение к аксиомам кольца для любых $\lambda \in R$ и $a,b \in A$ выполняется
+    $$
+    \lambda(ab) = (\lambda a)b = a(\lambda b)
+    $$
+\end{dfn}
