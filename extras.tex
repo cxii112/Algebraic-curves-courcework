@@ -141,7 +141,7 @@
     Идеал $I$ кольца $R$ --- \textit{простой}, если выполняется хотя бы одно из утверждений теоремы \ref{assertion-eq-thm}.
 \end{dfn}
 
-\section{Локализация}
+\section{Локализация колец}
 
 \begin{dfn}
     Пусть $S$ -- мультипликативное подмножество кольца $A$. Морфизм колец $\lambda: A \To L$ и кольцо $L$ называются \textit{локализацией $A$ по $S$}, если $\lambda(S) \subseteq L^*$ и для любого морфизма $\lambda': A \To L'$, такого что $\lambda'(S) \subseteq (L')^*$ существует единственный морфизм $\phi: L \To L'$, для которого коммутативна диаграмма
@@ -170,6 +170,23 @@
 \begin{thm}\cite[стр. 94]{Volochkov}
      Пусть $S$ -- мультипликативное подмножество кольца $A$. Тогда существует локализация $A$ по $S$.
 \end{thm}
+
+\begin{dfn}
+    \textit{Локализацией $A$ по $f$} назовем локализацию $A$ по мультипликативному множеству $\set{f^n|n\in \Z_{\ges 0}}$
+\end{dfn}
+
+\begin{dfn}
+    \textit{Локализацией $A$ по простому идеалу $\mathfrak{p}$} будем называть локализацию по множеству $A \setminus \mathfrak{p}$.
+\end{dfn}
+
+\begin{dfn}
+    Пусть $S$ -- мультипликативное подмножество кольца $A$. \textit{Аннулятором $S$} назовем следующее множество
+    $$
+    \operatorname{Ann}(S) = \set{a \in A | aS = \set{0} }
+    $$
+\end{dfn}
+
+% TODO локализация по простому элементу
 
 \begin{thm}\cite[стр. 96]{Volochkov}
     Пусть $S$ -- мультипликативное подмножество кольца $A$, $\lambda: A \To L$ -- локализация $A$ по $S$.
@@ -207,20 +224,14 @@
     Пусть $R$ -- кольцо. Тогда $\operatorname{rad}(R)$ совпадает с пересечением всех простых идеалов кольцо $R$.
 \end{cor}
 
-% TODO Перед этой теоремой нужно определить локализацию кольца R по его элементу f - это его лок-я по мультипл-му подмн-ву \set{f^n : n \in \mathbb{Z}_{\geq 0}}.
-
-% TODO Ann(a) тоже определите.
-
 \begin{thm}\cite[стр. 98]{Volochkov}
     Пусть $A$ -- кольцо, $f\in A$, $\lambda: A \To L$ -- локализация $A$ по $f$, $a \in A$. Тогда равносильны следующие условия:
     \begin{enumerate}
         \item $\lambda(a) = 0$;
-        \item $af^n = 0$, для некоторого $n \in \Z_{\ges}$;
+        \item $af^n = 0$, для некоторого $n \in \Z_{\ges 0}$;
         \item $f \in \sqrt{\operatorname{Ann}(a)}$.
     \end{enumerate}
 \end{thm}
-
-% TODO Теорема 1.2.13. Перед этим  нужно определить локализацию кольца R по его простому идеалу \mathfrak{p} - это лок-я R по его моульт-му подмн-ву R\setminus\mathfrak{p}.
 
 \begin{thm}\cite[стр. 98]{Volochkov}
     Пусть $S$ -- мультипликативное подмножество кольца $A$, $\lambda: A \To L$ -- морфизм колец. Тогда равносильны следующие условия:
@@ -255,24 +266,6 @@
     \mathfrak{m} = \set{\lambda(a)/\lambda(b)|a\in R, b\in R \setminus \mathfrak{p}}
     $$
 \end{thm}
-
-\begin{dfn}
-    Пусть $S$ -- мультипликативное подмножество кольца $R, M$ —
-    $R$-модуль. Морфизм $R$-модулей $\lambda : M \To L$ и $R$-модуль $L$ называются \textit{локализацией $M$ по $S$}, если выполняются следующие условия:
-    \begin{enumerate}
-        \item  $S_L \subseteq GL_R(L)$;
-        \item для любого морфизма $R$-модулей $\lambda' : M \To L'$, для которого $S_L' \subseteq  GL_R(L')$,
-        существует и единственен такой морфизм $\phi : L \To L'$, что коммутативна диаграмма
-        % https://q.uiver.app/?q=WzAsMyxbMCwxLCJNIl0sWzEsMCwiTCJdLFsyLDEsIkwnIl0sWzAsMSwiXFxsYW1iZGEiXSxbMCwyLCJcXGxhbWJkYSciLDJdLFsxLDIsIlxccGhpIl1d
-        \[\begin{tikzcd}
-            & L \\
-            M && {L'}
-            \arrow["\lambda", from=2-1, to=1-2]
-            \arrow["{\lambda'}"', from=2-1, to=2-3]
-            \arrow["\phi", from=1-2, to=2-3]
-        \end{tikzcd}\]
-    \end{enumerate}
-\end{dfn}
 
 \section{Модули}
 
@@ -347,4 +340,24 @@
     $$
     \lambda(ab) = (\lambda a)b = a(\lambda b)
     $$
+\end{dfn}
+
+\section{Локализация модулей}
+
+\begin{dfn}
+    Пусть $S$ -- мультипликативное подмножество кольца $R, M$ —
+    $R$-модуль. Морфизм $R$-модулей $\lambda : M \To L$ и $R$-модуль $L$ называются \textit{локализацией $M$ по $S$}, если выполняются следующие условия:
+    \begin{enumerate}
+        \item  $S_L \subseteq GL_R(L)$;
+        \item для любого морфизма $R$-модулей $\lambda' : M \To L'$, для которого $S_L' \subseteq  GL_R(L')$,
+        существует и единственен такой морфизм $\phi : L \To L'$, что коммутативна диаграмма
+        % https://q.uiver.app/?q=WzAsMyxbMCwxLCJNIl0sWzEsMCwiTCJdLFsyLDEsIkwnIl0sWzAsMSwiXFxsYW1iZGEiXSxbMCwyLCJcXGxhbWJkYSciLDJdLFsxLDIsIlxccGhpIl1d
+        \[\begin{tikzcd}
+            & L \\
+            M && {L'}
+            \arrow["\lambda", from=2-1, to=1-2]
+            \arrow["{\lambda'}"', from=2-1, to=2-3]
+            \arrow["\phi", from=1-2, to=2-3]
+        \end{tikzcd}\]
+    \end{enumerate}
 \end{dfn}
