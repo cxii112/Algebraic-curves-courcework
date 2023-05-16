@@ -12,7 +12,6 @@ jobs:
       - uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
-          compiler: pdflatex
 #           latexmk_use_xelatex: true
           args: -jobname=Algebraic-curves-courcework -synctex=1 -pdf -file-line-error -halt-on-error -interaction=nonstopmode
           post_compile: "latexmk -c"
