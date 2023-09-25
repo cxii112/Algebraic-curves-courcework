@@ -91,6 +91,7 @@
 \newcommand{\Co}{\mathbb{C}}
 
 % ---- Стили для курсовой по шаблону -----
+\usepackage{titlesec}
 \usepackage{geometry} % поля страницы
 \geometry{left=3cm}   % левое поле
 \geometry{right=1cm}  % правое поле
@@ -99,22 +100,39 @@
 \usepackage{setspace}
 \onehalfspacing
 
-\usepackage{multirow}
+\usepackage{tocloft}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}} % for parts
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
 
 \makeatletter
 \renewcommand{\@biblabel}[1]{#1.} % Заменяем библиографию с квадратных скобок на точку:
 \makeatother
 
-% ---- math -----
+\titlespacing*{\chapter}{0pt}{-10pt}{0pt}
+\titleformat{\chapter}[block]
+{\MakeUppercase \bfseries \centering}
+{\thechapter.}{0.5em}{}
+
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+\titleformat{\section}[block]
+{\MakeUppercase \bfseries \centering}
+{\thesection.}{0.5em}{}
+
+\setlength{\parindent}{1.25cm}
+\usepackage{indentfirst}
+
+\usepackage{multirow}
+
+% ---- extra math -----
 \newcommand{\ges}{\geqslant}
 \newcommand{\les}{\leqslant}
 
 \begin{document}
     \renewcommand{\contentsname}{Содержание} % не работает в преамбуле, необходимо по требованиям
-	\include{titlepage}
+    \include{titlepage}
     \setcounter{page}{2}
-	\tableofcontents
+    {\normalfont\tableofcontents}
     \include{extras}
-	\include{grassmann-schemes}
+    \include{grassmann-schemes}
     \include{bibliography}
 \end{document}

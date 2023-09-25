@@ -1,25 +1,36 @@
-\chapter{Предварительные сведения}
+\chapter{ПРЕДВАРИТЕЛЬНЫЕ СВЕДЕНИЯ}
 
+В этой главе введем необходимые для дальнейшей работы определения, леммы и теоремы.
+Также в данной работе будем полагать, что <<кольцо>> означает <<коммутативное кольцо>>,
+если явным образом не оговаривается иное.
 
+\section{АЛГЕБРА}
 
-В этой главе введем необходимые для дальнейшей работы определения, леммы и теоремы. Также в данной работе будем полагать, что <<кольцо>> означает <<коммутативное кольцо>>, если явным образом не оговаривается иное.
+\begin{dfn}\label{eq-class}
+    Пусть $X$ -- множество, $\sim$ -- отношение эквиваленции на $X$.
+    \textit{Классом эквивалентности по отношению $\sim$ элемента $x\in X$}
+    назовем множество
+    $$
+    X_x = \set{x'\in X | x \sim x'}
+    $$
+\end{dfn}
 
-\section{Алгебра}
+\begin{dfn}
+    Множество, элементами которого являются классы эквивалентности (из \ref{eq-class})
+    обозначим $X/\sim$ и назовем \textit{фактормножеством}.
+\end{dfn}
+
+\begin{dfn}
+    Отображение $f: X \To X/\sim$ называется \textit{естесственным}.
+\end{dfn}
 
 \begin{dfn}
     Множество всех отображений $Y$ в $X$ называется $X^Y$
 \end{dfn}
 
 \begin{dfn}
-    Инъективный морфизм $f: X \To Y$ называется \textit{мономорфизмом}. Обозначается $f: X \rightarrowtail Y$.
-\end{dfn}
-
-\begin{dfn}
-    Сюръективный морфизм $f: X \To Y$ называется \textit{эпиморфизмом}. Обозначается $f: X \twoheadrightarrow Y$.
-\end{dfn}
-
-\begin{dfn}
-    Пусть $L$ -- кольцо. Множество $L^*$ называется \textit{множеством обратимых элементов кольца $L$} и определяется следующим образом
+    Пусть $L$ -- кольцо. Множество $L^*$ называется
+    \textit{множеством обратимых элементов кольца $L$} и определяется следующим образом
     $$
     L^* = \set{l\in L|\exists l' \in L: ll' = l'l = 1_L}
     $$
@@ -28,7 +39,8 @@
 % TODO привести больше примеров множеств обратимых элементов
 
 \begin{dfn}
-    Пусть $R$ -- кольцо. Левый модуль $M$ кольца $R$ или левый $R$-модуль $M$, если для любых $a,b \in R$ и $x,y \in M$ выполняется следующее:
+    Пусть $R$ -- кольцо. Левый модуль $M$ кольца $R$ или левый $R$-модуль $M$,
+    если для любых $a,b \in R$ и $x,y \in M$ выполняется следующее:
     \begin{enumerate}
         \item $(a + b)x = ax + bx$;
         \item $a(x + y) = ax + ay$.
@@ -48,20 +60,32 @@
 \end{dfn}
 
 \begin{dfn}\cite[стр. 119]{Lang}
-    Пусть $M, M'$ -- модули кольца $R$. Морфизмом модулей будем называть отображение такое $f: M \To M'$, что для любых $a,b \in R$ и $x,y \in M$ выполняется:
+    Пусть $M, M'$ -- модули кольца $R$. Морфизмом модулей будем называть отображение
+    такое $f: M \To M'$, что для любых $a,b \in R$ и $x,y \in M$ выполняется:
     $$
     f(ax + by) = af(x) + bf(y)
     $$
 \end{dfn}
 
-\section{Идеалы}
+\begin{dfn}
+    Инъективный морфизм $f: X \To Y$ называется \textit{мономорфизмом}.
+    Обозначается $f: X \rightarrowtail Y$.
+\end{dfn}
+
+\begin{dfn}
+    Сюръективный морфизм $f: X \To Y$ называется \textit{эпиморфизмом}.
+    Обозначается $f: X \twoheadrightarrow Y$.
+\end{dfn}
+
+\section{ИДЕАЛЫ}
 
 \begin{dfn}
     \textit{Идеалом кольца} $R$ называется произвольное подмножество $I \subseteq R$ такое, что
     \begin{enumerate}
         \item $I \neq \0$;
         \item Если $a,b \in I$, то $a+b\in I$ (замкнутость по сложению);
-        \item Если $a \in I, b\in R$, то $ab \in I$ (замкнутость по умножению на элементы кольца~$R$).
+        \item Если $a \in I, b\in R$, то $ab \in I$
+        (замкнутость по умножению на элементы кольца~$R$).
     \end{enumerate}
 \end{dfn}
 
@@ -69,23 +93,7 @@
     Пусть $R$ -- кольцо. Подмножества $R,\left\lbrace 0\right\rbrace $ -- идеалы кольца $R$.
     Такие идеалы называются \textit{тривиальными}.
 \end{example*}
-%\begin{example*}
-%    Пусть $R$ -- кольцо. Введем $n \in \N, M_n(R)$ и $k \in \N, k \les n$. Также, пусть идеал
-%    $$
-%        I =
-%        \set{\begin{bmatrix}
-        %            0 & \hdots & a_{1k} & \hdots & 0 \\
-        %            & & \vdots & & \\
-        %            0 & \hdots & a_{ik} & \hdots & 0 \\
-        %            & & \vdots & & \\
-        %            0 & \hdots & a_{nk} & \hdots & 0 \\
-        %        \end{bmatrix}}
-%    $$
-%    Для данного примера временно введем обозначение: $A^{(p)}$ -- $p$-й столбец матрицы и %$(AB)^{(p)} = AB^{(p)}$.
-%    Таким образом, легко убедиться, что для любых $A,B \in I$ верно $(A+B) \in I$ и
-%     при $p \neq k$, $(AB)^{(p)} = AB^{(p)} = A0 = 0$.
-%     Однако $BA \nin I$, что означает, что $I$ -- левый идеал, но не правый.
-%\end{example*}
+
 \begin{dfn}
     Если $a \in R$, то множество
     $$\gen{a} := \set{ab \;|\; b \in R} =: aR = Ra$$
@@ -103,10 +111,11 @@
         \item $1 \in S$ (где $1$ -- нейтральный по умножению элемент кольца $R$);
         \item Для любых $a,b \in S: \; ab \in S$.
     \end{enumerate}
-0\end{dfn}
+\end{dfn}
 
 \begin{dfn}
-    Кольцо $R$ называется \textit{целостным}, если оно ненулевое и для любых ненулевых $a,b \in R : \; ab \neq 0$.
+    Кольцо $R$ называется \textit{целостным}, если оно ненулевое и
+    для любых ненулевых $a,b \in R : \; ab \neq 0$.
 \end{dfn}
 
 \begin{dfn}
@@ -114,11 +123,13 @@
 \end{dfn}
 
 \begin{dfn}\cite[стр. 92]{Lang}
-    Идеал $I$ кольца $R$ --- \textit{простой}, если $I \neq R$ и всякий раз, когда $a,b \in R$ и $ab \in I$, тогда $a \in I$ или $b \in I$.
+    Идеал $I$ кольца $R$ --- \textit{простой}, если $I \neq R$ и всякий раз,
+    когда $a,b \in R$ и $ab \in I$, тогда $a \in I$ или $b \in I$.
 \end{dfn}
 
 \begin{dfn}\cite[стр. 92]{Lang}
-    Идеал $I$ кольца $R$--- \textit{максимальный}, если $I \neq R$ и нет такого идеала $I'$ отличного от $I$ и содержащего его.
+    Идеал $I$ кольца $R$--- \textit{максимальный}, если $I \neq R$ и нет такого идеала $I'$
+    отличного от $I$ и содержащего его.
 \end{dfn}
 
 \begin{example*}
@@ -126,7 +137,8 @@
 \end{example*}
 
 \begin{example*}
-    Пусть $f \in R$, $S = \set{f^n|n\in \Z_{\ges 0}}$, тогда $S$ --- мультипликативное подмножество $R$.
+    Пусть $f \in R$, $S = \set{f^n|n\in \Z_{\ges 0}}$, тогда $S$ ---
+    мультипликативное подмножество $R$.
 \end{example*}
 
 \begin{thm}\cite[стр. 92]{Volochkov}
@@ -150,13 +162,18 @@
 \end{thm}
 
 \begin{dfn}
-    Идеал $I$ кольца $R$ --- \textit{простой}, если выполняется хотя бы одно из утверждений теоремы \ref{assertion-eq-thm}.
+    Идеал $I$ кольца $R$ --- \textit{простой},
+    если выполняется хотя бы одно из утверждений теоремы \ref{assertion-eq-thm}.
 \end{dfn}
 
-\section{Локализация колец}
+\section{ЛОКАЛИЗАЦИЯ КОЛЕЦ}
 
 \begin{dfn}
-    Пусть $S$ -- мультипликативное подмножество кольца $A$. Морфизм колец $\lambda: A \To L$ и кольцо $L$ называются \textit{локализацией $A$ по $S$}, если $\lambda(S) \subseteq L^*$ и для любого морфизма $\lambda': A \To L'$, такого что $\lambda'(S) \subseteq (L')^*$ существует единственный морфизм $\phi: L \To L'$, для которого коммутативна диаграмма
+    Пусть $S$ -- мультипликативное подмножество кольца $A$. Морфизм колец $\lambda: A \To L$ и
+    кольцо $L$ называются \textit{локализацией $A$ по $S$},
+    если $\lambda(S) \subseteq L^*$ и для любого морфизма $\lambda': A \To L'$,
+    такого что $\lambda'(S) \subseteq (L')^*$ существует единственный морфизм $\phi: L \To L'$,
+    для которого коммутативна диаграмма
     % https://q.uiver.app/?q=WzAsMyxbMCwxLCJBIl0sWzEsMCwiTCJdLFsyLDEsIkwnIl0sWzAsMSwiXFxsYW1iZGEiXSxbMSwyLCJcXHBoaSJdLFswLDIsIlxcbGFtYmRhJyIsMl1d
     \[\begin{tikzcd}
         & L \\
@@ -168,8 +185,10 @@
 \end{dfn}
 
 \begin{thm}\cite[стр. 94]{Volochkov}
-     Пусть $S$ -- мультипликативное подмножество кольца $A$. $\lambda: A \To L$ и $\lambda': A \To L'$ -- локализации $A$ по $S$. Тогда существует единственный изоморфизм $\phi: L \To L'$, для которого коммутативна диаграмма
-     % https://q.uiver.app/?q=WzAsMyxbMCwxLCJBIl0sWzEsMCwiTCJdLFsyLDEsIkwnIl0sWzAsMSwiXFxsYW1iZGEiXSxbMSwyLCJcXHBoaSJdLFswLDIsIlxcbGFtYmRhJyIsMl1d
+    Пусть $S$ -- мультипликативное подмножество кольца $A$. $\lambda: A \To L$ и $\lambda': A \To L'$ --
+     локализации $A$ по $S$. Тогда существует единственный изоморфизм $\phi: L \To L'$,
+     для которого коммутативна диаграмма
+    % https://q.uiver.app/?q=WzAsMyxbMCwxLCJBIl0sWzEsMCwiTCJdLFsyLDEsIkwnIl0sWzAsMSwiXFxsYW1iZGEiXSxbMSwyLCJcXHBoaSJdLFswLDIsIlxcbGFtYmRhJyIsMl1d
      \[\begin{tikzcd}
          & L \\
          A && {L'}
@@ -180,19 +199,23 @@
 \end{thm}
 
 \begin{thm}\cite[стр. 94]{Volochkov}
-     Пусть $S$ -- мультипликативное подмножество кольца $A$. Тогда существует локализация $A$ по $S$.
+     Пусть $S$ -- мультипликативное подмножество кольца $A$.
+     Тогда существует локализация $A$ по $S$.
 \end{thm}
 
 \begin{dfn}
-    \textit{Локализацией $A$ по $f$} назовем локализацию $A$ по мультипликативному множеству $\set{f^n|n\in \Z_{\ges 0}}$
+    \textit{Локализацией $A$ по $f$} назовем локализацию $A$ по мультипликативному
+    множеству $\set{f^n|n\in \Z_{\ges 0}}$
 \end{dfn}
 
 \begin{dfn}
-    \textit{Локализацией $A$ по простому идеалу $\mathfrak{p}$} будем называть локализацию по множеству $A \setminus \mathfrak{p}$.
+    \textit{Локализацией $A$ по простому идеалу $\mathfrak{p}$} будем называть
+    локализацию по множеству $A \setminus \mathfrak{p}$.
 \end{dfn}
 
 \begin{dfn}
-    Пусть $S$ -- мультипликативное подмножество кольца $A$. \textit{Аннулятором $S$} назовем следующее множество
+    Пусть $S$ -- мультипликативное подмножество кольца $A$.
+    \textit{Аннулятором $S$} назовем следующее множество
     $$
     \operatorname{Ann}(S) = \set{a \in A | aS = \set{0} }
     $$
@@ -222,22 +245,26 @@
 \end{dfn}
 
 \begin{dfn}
-    Радикал нулевого идеала кольца $R$ назовем \textit{нильрадикалом} $R$ и обозначим $\operatorname{rad}(R)$. Таким образом,
+    Радикал нулевого идеала кольца $R$ назовем \textit{нильрадикалом} $R$ и
+    обозначим $\operatorname{rad}(R)$. Таким образом,
     $$
     \operatorname{rad}(R) = \{a\in R | (\exists n\in\N ) (a^n = 0)\}
     $$
 \end{dfn}
 
 \begin{thm}\cite[стр. 97]{Volochkov}
-    Пусть $I$ -- идеал кольца $R$. Тогда $\sqrt{}I$ совпадает с пересечением всех простых идеалов содержащих $I$.
+    Пусть $I$ -- идеал кольца $R$. Тогда $\sqrt{}I$ совпадает
+    с пересечением всех простых идеалов содержащих $I$.
 \end{thm}
 
 \begin{cor}
-    Пусть $R$ -- кольцо. Тогда $\operatorname{rad}(R)$ совпадает с пересечением всех простых идеалов кольцо $R$.
+    Пусть $R$ -- кольцо. Тогда $\operatorname{rad}(R)$ совпадает
+    с пересечением всех простых идеалов кольцо $R$.
 \end{cor}
 
 \begin{thm}\cite[стр. 98]{Volochkov}
-    Пусть $A$ -- кольцо, $f\in A$, $\lambda: A \To L$ -- локализация $A$ по $f$, $a \in A$. Тогда равносильны следующие условия:
+    Пусть $A$ -- кольцо, $f\in A$, $\lambda: A \To L$ -- локализация $A$ по $f$,
+    $a \in A$. Тогда равносильны следующие условия:
     \begin{enumerate}
         \item $\lambda(a) = 0$;
         \item $af^n = 0$, для некоторого $n \in \Z_{\ges 0}$;
@@ -246,7 +273,8 @@
 \end{thm}
 
 \begin{thm}\cite[стр. 98]{Volochkov}
-    Пусть $S$ -- мультипликативное подмножество кольца $A$, $\lambda: A \To L$ -- морфизм колец. Тогда равносильны следующие условия:
+    Пусть $S$ -- мультипликативное подмножество кольца $A$,
+    $\lambda: A \To L$ -- морфизм колец. Тогда равносильны следующие условия:
     \begin{enumerate}
         \item $\lambda$ -- локализация $A$ по $S$;
         \item $(a)$ $\lambda(S) \subseteq L^*$ \\
@@ -256,11 +284,16 @@
 \end{thm}
 
 \begin{example*}
-    Пусть $B$ -- кольцо, $A$ -- его подкольцо, $S$ -- мультипликативное подмножество кольца $A$, $S \subseteq B^*$, $L = \set{a/s|a\in A, s\in S}$, $\lambda: A\To L$, $\lambda(a) = a$. Тогда $\lambda$ -- локализация $A$ по $S$.
+    Пусть $B$ -- кольцо, $A$ -- его подкольцо, $S$ -- мультипликативное подмножество кольца $A$,
+    $S \subseteq B^*$, $L = \set{a/s|a\in A, s\in S}$,
+    $\lambda: A\To L$, $\lambda(a) = a$. Тогда $\lambda$ -- локализация $A$ по $S$.
 \end{example*}
 
 \begin{thm}\cite[стр. 99]{Volochkov}
-    Пусть $f: A\To B$ -- гомоморфизм колец, $S$ -- мультипликативное подмножество $A$, $T$ -- мультипликативное подмножество $B$, $f(S) \subseteq T$, $\alpha: A \To A'$ -- локализация $A$ по $S$, $\beta: B \To B'$ -- локализация $B$ по $T$. Тогда существует единственный такой гомоморфизм $f': A' \To B'$, что коммутативна диаграмма
+    Пусть $f: A\To B$ -- гомоморфизм колец, $S$ -- мультипликативное подмножество $A$,
+    $T$ -- мультипликативное подмножество $B$, $f(S) \subseteq T$,
+    $\alpha: A \To A'$ -- локализация $A$ по $S$, $\beta: B \To B'$ -- локализация $B$ по $T$.
+    Тогда существует единственный такой гомоморфизм $f': A' \To B'$, что коммутативна диаграмма
     % https://q.uiver.app/?q=WzAsNCxbMCwxLCJBIl0sWzAsMCwiQSciXSxbMSwxLCJCIl0sWzEsMCwiQiciXSxbMCwyLCJmIiwyXSxbMCwxLCJcXGFscGhhIl0sWzEsMywiZiciXSxbMiwzLCJcXGJldGEiLDJdXQ==
     \[\begin{tikzcd}
         {A'} & {B'} \\
@@ -273,16 +306,21 @@
 \end{thm}
 
 \begin{thm}\cite[стр. 100]{Volochkov}
-    Пусть $\mathfrak{p}$ -- простой идеал кольца $R$ и $\lambda: R \To L$ -- локализация $R$ в $\mathfrak{p}$. Тогда $L$ -- локальное кольцо с максимальным идеалом
+    Пусть $\mathfrak{p}$ -- простой идеал кольца $R$ и $\lambda: R \To L$ --
+    локализация $R$ в $\mathfrak{p}$. Тогда $L$ -- локальное кольцо с максимальным идеалом
     $$
     \mathfrak{m} = \set{\lambda(a)/\lambda(b)|a\in R, b\in R \setminus \mathfrak{p}}
     $$
 \end{thm}
 
-\section{Модули}
+\section{МОДУЛИ}
 
 \begin{dfn}
-    Модуль $M$ является \textit{прямой суммой} своих подмодулей $M_1$, $M_2$, если для любого $m \in M$ найдутся единственный $m_1 \in M_1$ и единственный $m_2 \in M_2$, такие, что $m = m_1 + m_2$. Выражение <<\textit{$M$ является прямой суммой $M_1$ и $M_2$}>> будем записывать $M = M_1 \oplus M_2$.
+    Модуль $M$ является \textit{прямой суммой} своих подмодулей $M_1$, $M_2$,
+    если для любого $m \in M$ найдутся единственный $m_1 \in M_1$ и
+    единственный $m_2 \in M_2$, такие, что $m = m_1 + m_2$.
+    Выражение <<\textit{$M$ является прямой суммой $M_1$ и $M_2$}>>
+    будем записывать $M = M_1 \oplus M_2$.
 \end{dfn}
 
 \begin{thm}
@@ -294,15 +332,20 @@
 \end{thm}
 
 \begin{dfn}
-    Подмодуль $S$ модуля $M$ \textit{выделяется прямым слагаемым}, если найдется такой подмодуль $T$ модуля $M$, что $M = S \oplus T$.
+    Подмодуль $S$ модуля $M$ \textit{выделяется прямым слагаемым},
+    если найдется такой подмодуль $T$ модуля $M$, что $M = S \oplus T$.
 \end{dfn}
 
 \begin{dfn}\label{lin-independence}\cite[стр. 140]{Cohn}
-    Пусть $M$ -- $R$-модуль кольца $R$. Некоторое семейство $x_1, ... , x_n \in M$ \textit{линейно независимо}, если для любых $a_i \in R, i\in I$ справедливо $\sum\limits_{i\in I}a_i x_i = 0$ только тогда, когда $a_1=...=a_n = 0$.
+    Пусть $M$ -- $R$-модуль кольца $R$.
+    Некоторое семейство $x_1, ... , x_n \in M$ \textit{линейно независимо},
+    если для любых $a_i \in R, i\in I$ справедливо $\sum\limits_{i\in I}a_i x_i = 0$ только тогда,
+    когда $a_1=...=a_n = 0$.
 \end{dfn}
 
 \begin{dfn}
-    Семейство $x_1,...,x_n$ из определения \ref{lin-independence} будем называть \textit{базисом} $R$-модуля $M$.
+    Семейство $x_1,...,x_n$ из определения \ref{lin-independence}
+    будем называть \textit{базисом} $R$-модуля $M$.
 \end{dfn}
 
 \begin{dfn}\label{free-module}
@@ -311,7 +354,9 @@
 
 \begin{dfn}\label{projective-module}
     Модуль $P$ над кольцом $R$ называется \textit{проективным}, если для
-    любого эпиморфизма $f: N \twoheadrightarrow M$ $R$-модулей и любого морфизма $g: P \To M$ существует такой морфизм $h: P \To N$, что коммутативна диаграмма
+    любого эпиморфизма $f: N \twoheadrightarrow M$ $R$-модулей и
+    любого морфизма $g: P \To M$ существует такой морфизм $h: P \To N$,
+    что коммутативна диаграмма
     $$
         \begin{tikzcd}
             & N \\
@@ -324,24 +369,54 @@
 \end{dfn}
 
 \begin{thm}\label{projectivity-criteria}
-    Модуль проективен тогда и только тогда, когда он является прямым слагаемым некоторого свободного модуля.
+    Модуль проективен тогда и только тогда,
+    когда он является прямым слагаемым некоторого свободного модуля.
 \end{thm}
 
 \begin{thm}
     Проективный модуль над локальным кольцом свободен.
 \end{thm}
 
+% возможно стоит переместить после локализации модулей
 \begin{thm}
     Пусть $R$ -- коммутативное кольцо, $\mathfrak{p}$ -- простой идеал в $R$. Если
     $M$ -- проективный $R$-модуль, то $M_\mathfrak{p}$ -- свободный $R_\mathfrak{p}$-модуль.
 \end{thm}
 
 \begin{dfn}\label{rank-of-projective-module}
-    Проективный модуль $M$ над коммутативным кольцом $R$ имеет ранг $r \in \Z_{\ges 0}$, если для любого простого идеала $\mathfrak{p}$ кольца $R$ свободный $R_\mathfrak{p}$-модуль $M_\mathfrak{p}$ имеет (свободный) ранг $r$.
+    Проективный модуль $M$ над коммутативным кольцом $R$ имеет ранг $r \in \Z_{\ges 0}$,
+    если для любого простого идеала $\mathfrak{p}$ кольца $R$
+    свободный $R_\mathfrak{p}$-модуль $M_\mathfrak{p}$ имеет (свободный) ранг $r$.
+\end{dfn}
+
+\begin{dfn}
+    Пусть $K$ -- кольцо, $U$, $V$, $W$ -- $K$-модули,
+    $f: U \times V \To W$ -- билинейное отображение.
+    Составим $K$-модуль $T$ и билинейное отображение $g: U \times V \To T$ такие,
+    что для любого $f$ существует отображение $h: T \To W$,
+    что коммутативна диаграмма
+    % https://q.uiver.app/?q=WzAsMyxbMCwxLCJVXFx0aW1lcyBWIl0sWzEsMCwiVCJdLFsxLDIsIlciXSxbMCwxLCJmIl0sWzAsMiwiZyIsMl0sWzEsMiwiaCJdXQ==
+    \[\begin{tikzcd}
+        & T \\
+        {U\times V} \\
+        & W
+        \arrow["f", from=2-1, to=1-2]
+        \arrow["g"', from=2-1, to=3-2]
+        \arrow["h", from=1-2, to=3-2]
+    \end{tikzcd}\]
+    Модуль $T$ с соответствующими свойствами назовем результатом \textit{тензорного произведения $U$ на $V$ над кольцом $K$} и обозначим $U \otimes_{K} V$.
+\end{dfn}
+
+\begin{dfn}
+    $\phi : A \To B$ -- морфизм $k$-алгебр, $n \in \Z_{\ges 0}$, $S$ -- подмодуль
+    $A$-модуля $A^n$. Обозначим $S^B := \gen{\phi(S)}_B$ $B$-линейную оболочку
+    подмножества $\phi(S) \subseteq B^n$.
 \end{dfn}
 
 \begin{lem}\label{lem-isomorphism-b-modules}
-    Пусть $\phi: \; A \To B$ -- морфизм $k$-алгебр, $n \in \Z_{\ges 0}$, $S$, $T$ -- подмодули $A$-модуля $A^n$, $A^n = S \oplus T$. Тогда выполняются следующие утверждения:
+    Пусть $\phi: \; A \To B$ -- морфизм $k$-алгебр, $n \in \Z_{\ges 0}$,
+    $S$, $T$ -- подмодули $A$-модуля $A^n$, $A^n = S \oplus T$.
+    Тогда выполняются следующие утверждения:
     \begin{enumerate}
         \item Существует такой изоморфизм $B$-модулей
         $$\psi : (B \otimes_{A} S) \oplus (B \otimes_{A} T) \To B^n,$$
@@ -355,8 +430,9 @@
     \end{enumerate}
 \end{lem}
 
-\begin{dfn}
-    Пусть $M$ -- $R$-модуль кольца $R$. Множество всех $\operatorname{End}_R(M)$ будем называть \textit{главной линейной частью}. Обозначается главная линейная часть $\GL_R(M)$.
+\begin{dfn} %%
+    Пусть $M$ -- $R$-модуль кольца $R$. Множество всех $\operatorname{End}_R(M)$ будем называть
+    \textit{главной линейной группой}. Обозначается главная линейная часть $\GL_R(M)$.
 \end{dfn}
 
 \begin{dfn}
@@ -368,15 +444,17 @@ $$
 c \cdot a = \phi(c)a, \; c \in k
 $$
 
-\section{Локализация модулей}
+\section{ЛОКАЛИЗАЦИЯ МОДУЛЕЙ}
 
 \begin{dfn}
     Пусть $S$ -- мультипликативное подмножество кольца $R, M$ —
-    $R$-модуль. Морфизм $R$-модулей $\lambda : M \To L$ и $R$-модуль $L$ называются \textit{локализацией $M$ по $S$}, если выполняются следующие условия:
+    $R$-модуль. Морфизм $R$-модулей $\lambda : M \To L$ и $R$-модуль $L$
+    называются \textit{локализацией $M$ по $S$}, если выполняются следующие условия:
     \begin{enumerate}
         \item  $S_L \subseteq GL_R(L)$;
-        \item для любого морфизма $R$-модулей $\lambda' : M \To L'$, для которого $S_L' \subseteq  GL_R(L')$,
-        существует и единственен такой морфизм $\phi : L \To L'$, что коммутативна диаграмма
+        \item для любого морфизма $R$-модулей $\lambda' : M \To L'$,
+        для которого $S_L' \subseteq GL_R(L')$, существует и единственен
+        такой морфизм $\phi : L \To L'$, что коммутативна диаграмма
         % https://q.uiver.app/?q=WzAsMyxbMCwxLCJNIl0sWzEsMCwiTCJdLFsyLDEsIkwnIl0sWzAsMSwiXFxsYW1iZGEiXSxbMCwyLCJcXGxhbWJkYSciLDJdLFsxLDIsIlxccGhpIl1d
         \[\begin{tikzcd}
             & L \\
@@ -386,4 +464,203 @@ $$
             \arrow["\phi", from=1-2, to=2-3]
         \end{tikzcd}\]
     \end{enumerate}
+\end{dfn}
+
+\section{КАТЕГОРИИ И ФУНКТОРЫ}
+
+\begin{dfn}
+    Граф $G$ -- это любая упорядоченная четверка $(V,A, \operatorname{dom}, \operatorname{cod})$, где $V$, $A$ -- любые множества,
+    $\operatorname{dom}$, $\operatorname{cod}: A \To V$ -- произвольные отображения.
+    Элементы $V$ -- вершины графа $G$, элементы $A$ -- стрелки, или ребра графа $G$.
+    Если $a \in A$, то $\operatorname{dom}(a)\in V$ называется
+    началом, или областью определения $a$,
+    $\operatorname{cod}(a) \in V$ -- концом, или областью значений $a$, или кообластью $a$.
+\end{dfn}
+\begin{example}\label{cat-graph}
+
+    Граф $G$ состоит из множества вершин $V = \set{A,B,C,D}$,
+    множества стрелок $A = \set{e,f,g,h}$,
+    отображений $\operatorname{dom}, \operatorname{cod}: A \To V$,
+    $\operatorname{cod}(e) = \operatorname{cod}(e) = A$, $\operatorname{dom}(f) = A$, $\operatorname{cod}(f) = B$, $\operatorname{dom}(g) = A$, $\operatorname{cod}(d) = B$, $\operatorname{dom}(h) = B$, $\operatorname{cod}(h) = C$.
+    % https://q.uiver.app/?q=WzAsNCxbMCwwLCJBIl0sWzEsMCwiQiJdLFsyLDAsIkMiXSxbMywwLCJEIl0sWzAsMSwiZiIsMCx7ImN1cnZlIjotMX1dLFswLDEsImciLDIseyJjdXJ2ZSI6MX1dLFsxLDIsImgiXV0=
+    \[\begin{tikzcd}
+        A & B & C & D
+        \arrow["e"', from=1-1, to=1-1, out=150, in=210, loop, looseness=5]
+        \arrow["f", curve={height=-6pt}, from=1-1, to=1-2]
+        \arrow["g"', curve={height=6pt}, from=1-1, to=1-2]
+        \arrow["h", from=1-2, to=1-3]
+\end{tikzcd}\]
+\end{example}
+
+\begin{dfn}
+    Если $a,b$ -- вершины графа $G$, то множество стрелок графа $G$
+    из $a$ в $b$ обозначим $G(a,b)$,
+    или $\operatorname{Mor}_G(a,b)$,
+    или $\operatorname{Mor}(a,b)$, если ясно, о каком графе идет речь.
+\end{dfn}
+
+\begin{example*}
+    В графе $G$ из \ref{cat-graph} $G(A,A) = \set{e}$, $G(A,B) = \set{f,g}$, $G(A,C) = \0 $,
+$G(C,D) = \0$ и так далее.
+
+\end{example*}
+
+Если стрелка $f$ имеет начало $a$ и конец $b$,
+то мы пишем $f: a \To b$, или $a \overset{f}{\To} b$.
+Если мы желаем подчеркнуть, что стрелка $f: a \To b$ относится к графу $G$,
+то пишем $a \overset{f}{\underset{G}{\To}} b$
+Это бывает нужным, если на одном и том же множестве $V$ определено
+более одного графа с множеством вершин $V$.
+
+\begin{dfn}
+    Множество вершин графа $G$ обозначим $\operatorname{Ob}(G)$.
+\end{dfn}
+
+\begin{dfn}
+    Пусть $G,H$ -- графы. Морфизмом $G \To H$ назовем любое
+    отображение $\phi: V(G) \cup A(G) \To V(H) \cup A(H)$ такое,
+    что $\phi(V(G)) \subseteq V(H)$ (т. е. вершины $G$ переходят в вершины $H$),
+    $\phi(A(G)) \subseteq A(H)$ (т. е. ребра $G$ переходят в ребра $H$),
+    и если $a,b \in V(G)$, $f \in \operatorname{Mor}_G(a,b)$,
+    то $\phi(f) \in \operatorname{Mor}_H(\phi(a),\phi(b))$
+    (т. е. из $f: a \To b$ следует $\phi(f): \phi(a) \To \phi(b))$.
+\end{dfn}
+
+\begin{dfn}\label{cat-def}
+    \textit{Категория $\mathcal{C}$} -- это граф $G$, в котором для произвольных $A,B,C \in \operatorname{Ob}(\mathcal{C})$
+    задано произведение $\operatorname{Mor}(B,C) \times \operatorname{Mor}(A,B) \To \operatorname{Mor}(A,C)$, причем выполняются следующие условия.
+    \begin{enumerate}
+        \item Для $A,B,C,D \in \operatorname{Ob}(\mathcal(C))$ и
+        $f \in \operatorname{Mor}(A,B)$,
+        $g \in \operatorname{Mor}(B,C)$,
+        $h \in \operatorname{Mor}(C,D)$ выполняется закон ассоциативности
+        $(hg)f = h(gf)$;
+        \item Для каждого $A \in \operatorname{Ob}(\mathcal{C})$
+        найдется $e \in \operatorname{Mor}(A,A)$ такой,
+        что для любого $B \in \operatorname{Ob}(\mathcal{C})$ и
+        $f \in \operatorname{Mor}(A,B)$, $g \in \operatorname{Mor}(B,A)$ выполняются равенства
+        $fe = f$ и $eg = g$.
+    \end{enumerate}
+\end{dfn}
+
+\begin{dfn}
+    Элементы $\operatorname{Ob}(\mathcal{C})$ называются \textit{объектами категории $\mathcal{C}$}.
+\end{dfn}
+
+\begin{dfn}
+    Элементы $\operatorname{Mor}(X,Y)$ называются \textit{морфизмами $X$ в $Y$},
+    или морфизмами $X \To Y$.
+\end{dfn}
+
+Если $\alpha \in \operatorname{Mor}(X,Y)$ и ясно, о какой категории идет речь,
+то мы пишем $\alpha: X \To Y$, или $X \overset{\alpha}{\To} Y$.
+Морфизм $e: A \To A$ из аксиомы 2 определения \ref{cat-def} называется \textit{тождественным},
+или \textit{единичным} морфизмом объекта $A$.
+
+\begin{dfn}
+    Множество всех морфизмов категории $\mathcal{C}$ обозначим $\operatorname{Mor}(\mathcal{C})$.
+\end{dfn}
+
+\begin{dfn}
+    Пусть $\mathcal{A}, \mathcal{B}$ -- категории.
+    Говорят, что $F$ -- функтор $\mathcal{A} \To \mathcal{B}$,
+    если каждому $X \in \operatorname{Ob}(\mathcal{A})$ сопоставлен некоторый объект
+    $F(X) \in \operatorname{Ob}(\mathcal{B})$
+    и для каждого морфизма $\phi:X \To Y$ в $\mathcal{A}$ определен
+    морфизм $F(\phi): F(X) \To F(Y)$ в $\mathcal{B}$ таким образом,
+    что выполняются следующие свойства
+    \begin{enumerate}
+        \item Если $A \in \operatorname{Ob}(\mathcal{A})$, то $F(\id_A) = \id_{F(A)}$;
+        \item Если $\alpha: A \To B$, $\beta: B \To C$ -- морфизмы в $\mathcal{A}$,
+        то $F(\beta\alpha) = F(\beta)F(\alpha)$.
+    \end{enumerate}
+    Условие $F(\beta\alpha) = F(\beta)F(\alpha)$ означает,
+    что функтор переводит любой коммутативный треугольник в категории $\mathcal{A}$ в коммутативный треугольник в категории $\mathcal{B}$
+
+    % https://q.uiver.app/?q=WzAsMyxbMCwxLCJBIl0sWzEsMCwiQiJdLFsyLDEsIkMiXSxbMCwxLCJcXGFscGhhIl0sWzAsMiwiXFxnYW1tYSIsMl0sWzEsMiwiXFxiZXRhIl1d
+    %\[\begin{tikzcd}
+    %    & B \\
+    %    A && C
+    %    \arrow["\alpha", from=2-1, to=1-2]
+    %    \arrow["\gamma"', from=2-1, to=2-3]
+    %    \arrow["\beta", from=1-2, to=2-3]
+    %\end{tikzcd}\]
+
+
+
+   % https://q.uiver.app/?q=WzAsMyxbMCwxLCJGKEEpIl0sWzEsMCwiRihCKSJdLFsyLDEsIkYoQykiXSxbMCwxLCJGKFxcYWxwaGEpIl0sWzAsMiwiRihcXGdhbW1hKSIsMl0sWzEsMiwiRihcXGJldGEpIl1d
+   %\[\begin{tikzcd}
+   %    & {F(B)} \\
+   %    {F(A)} && {F(C)}
+   %    \arrow["{F(\alpha)}", from=2-1, to=1-2]
+   %    \arrow["{F(\gamma)}"', from=2-1, to=2-3]
+   %    \arrow["{F(\beta)}", from=1-2, to=2-3]
+   %\end{tikzcd}\]
+
+    % https://q.uiver.app/?q=WzAsNixbNCwxLCJGKEEpIl0sWzUsMCwiRihCKSJdLFs2LDEsIkYoQykiXSxbMiwxLCJDIl0sWzAsMSwiQSJdLFsxLDAsIkIiXSxbMCwxLCJGKFxcYWxwaGEpIl0sWzAsMiwiRihcXGdhbW1hKSIsMl0sWzEsMiwiRihcXGJldGEpIl0sWzQsNSwiXFxhbHBoYSJdLFs1LDMsIlxcYmV0YSJdLFs0LDMsIlxcZ2FtbWEiLDJdXQ==
+    \[\begin{tikzcd}
+        & B &&&& {F(B)} \\
+        A && C && {F(A)} && {F(C)}
+        \arrow["{F(\alpha)}", from=2-5, to=1-6]
+        \arrow["{F(\gamma)}"', from=2-5, to=2-7]
+        \arrow["{F(\beta)}", from=1-6, to=2-7]
+        \arrow["\alpha", from=2-1, to=1-2]
+        \arrow["\beta", from=1-2, to=2-3]
+        \arrow["\gamma"', from=2-1, to=2-3]
+    \end{tikzcd}\]
+
+    Вообще, очевидно, функтор переводит любую коммутативную диаграмму в коммутативную диаграмму. Интуитивно, \textit{функтор -- это морфизм категорий}.
+\end{dfn}
+
+\begin{thm}\cite[стр. 49]{Volochkov}\label{f-cat-to-univsets-cat}
+    Пусть $I$ -- множество, $(F_i)_{i \in I}$ -- семейство функторов
+    из категории $\mathcal{C}$ в категорию $\mathcal{U}$-множеств $\mathcal{S}$.
+    Существует и единственен такой функтор $F: \mathcal{C} \To \mathcal{S}$, что
+    \begin{enumerate}
+        \item для каждого $X \in \operatorname{Ob}(\mathcal{C})$
+        $F(X) = \prod\limits_{i\in I} F_i(X)$;
+        \item для любого морфизма $\phi: X \To Y$ в $\mathcal{C}$
+        $F(\phi) = \prod\limits_{i\in I} F_i(\phi)$.
+    \end{enumerate}
+\end{thm}
+
+\section{СИСТЕМЫ УРАВНЕНИЙ И ФУНКТОРЫ}
+
+\begin{dfn}\label{k-functor}
+    Любой функтор $\mathbf{Alg_k} \To \mathbf{Set}$ -- $k$-функтор.
+\end{dfn}
+
+\begin{dfn}
+    Пусть $F: \mathbf{Alg_k} \To \mathbf{Set}$ -- функтор забвения, $\Gamma$ -- множество.
+    Аффинным пространством $A^\Gamma_k$ над $k$
+    размерности $|\Gamma|$ назовем $k$-функтор $F^\Gamma$ (\ref{f-cat-to-univsets-cat}).
+\end{dfn}
+
+Очевидно, $A_k^\Gamma$ -- $k$-функтор, любой $k$-алгебре $A$ сопоставляющий $A^\Gamma$,
+и произвольному морфизму $k$-алгебр $\phi: A \To B$ соотносящий отображение
+$\phi^\Gamma: A^\Gamma \To B^\Gamma$.
+
+Если $n \in \N$ и $\Gamma = \set{1, . . . , n}$ ($\Gamma = \0$ при $n = 0$),
+то для любых $a_1, . . . , a_n$ мы считаем,
+что $(\alpha_\gamma)_\gamma \in \Gamma = (a_1, . . . , a_n)$.
+Таким образом, для произвольного множества $S$
+мы очевидным образом отождествляем $S^\Gamma$ и $S^n$.
+Для краткости мы пишем $A_k^n := A_k^\Gamma$,
+и называем $k$-функтор $A_k^n$ аффинным $k$-пространством над $k$.
+Если ясно, о каком $k$ идет речь, можно писать $A^n$.
+
+\begin{dfn}%%
+    Системой уравнений над $k$ называется тройка
+    \begin{equation}\label{eq-sys}
+        S = (P, (T_\gamma)_{\gamma \in \Gamma}, (f_\delta)_{\delta \in \Delta})
+    \end{equation}
+
+    где $P$ — $k$-алгебра многочленов, $(T_\gamma)_{\gamma \in \Gamma} =: T$ -- ее базис,
+    и $(f_\delta)_{\delta \in \Delta})$ -- любое семейство многочленов из $P$.
+\end{dfn}
+
+\begin{dfn}
+    Решением системы уравнений \ref{k-functor} в $k$-алгебре $A$ называется
+    произвольное семейство $a \in A^\Gamma$ такое,
+    что $f_\delta(a) = 0$ для всех $\delta \in \Delta$.
 \end{dfn}
