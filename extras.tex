@@ -40,32 +40,12 @@
 % TODO привести больше примеров множеств обратимых элементов
 
 \begin{dfn}
-    Пусть $R$ -- кольцо. Левый модуль $M$ кольца $R$ или левый $R$-модуль $M$,
-    если для любых $a,b \in R$ и $x,y \in M$ выполняется следующее:
-    \begin{enumerate}
-        \item $(a + b)x = ax + bx$;
-        \item $a(x + y) = ax + ay$.
-    \end{enumerate}
-\end{dfn}
-
-Аналогичным образом определяется правый $R$-модуль.
-Если модуль $M$ является одновременно левым и правым, то будем называть его просто $R$-модуль.
-
-\begin{dfn}
     Пусть $A,B$ -- кольца. Отображение $f: A \To B$ называется \textit{морфизмом колец}, если:
     \begin{enumerate}
         \item $f(1) = 1$;
         \item $f(x + y) = f(x) + f(y)$;
         \item $f(xy) = f(x)f(y)$.
     \end{enumerate}
-\end{dfn}
-
-\begin{dfn}\cite[стр. 119]{Lang}
-    Пусть $M, M'$ -- модули кольца $R$. Морфизмом модулей будем называть отображение
-    такое $f: M \To M'$, что для любых $a,b \in R$ и $x,y \in M$ выполняется:
-    $$
-    f(ax + by) = af(x) + bf(y)
-    $$
 \end{dfn}
 
 \begin{dfn}
@@ -170,15 +150,15 @@
 \section{ЛОКАЛИЗАЦИЯ КОЛЕЦ}
 
 \begin{dfn}
-    Пусть $S$ -- мультипликативное подмножество кольца $A$. Морфизм колец $\lambda: A \To L$ и
-    кольцо $L$ называются \textit{локализацией $A$ по $S$},
-    если $\lambda(S) \subseteq L^*$ и для любого морфизма $\lambda': A \To L'$,
+    Пусть $S$ -- мультипликативное подмножество кольца $R$. Морфизм колец $\lambda: R \To L$ и
+    кольцо $L$ называются \textit{локализацией $R$ по $S$},
+    если $\lambda(S) \subseteq L^*$ и для любого морфизма $\lambda': R \To L'$,
     такого что $\lambda'(S) \subseteq (L')^*$ существует единственный морфизм $\phi: L \To L'$,
     для которого коммутативна диаграмма
     % https://q.uiver.app/?q=WzAsMyxbMCwxLCJBIl0sWzEsMCwiTCJdLFsyLDEsIkwnIl0sWzAsMSwiXFxsYW1iZGEiXSxbMSwyLCJcXHBoaSJdLFswLDIsIlxcbGFtYmRhJyIsMl1d
     \[\begin{tikzcd}
         & L \\
-        A && {L'}
+        R && {L'}
         \arrow["\lambda", from=2-1, to=1-2]
         \arrow["\phi", from=1-2, to=2-3]
         \arrow["{\lambda'}"', from=2-1, to=2-3]
@@ -186,13 +166,13 @@
 \end{dfn}
 
 \begin{thm}\cite[стр. 94]{Volochkov}
-    Пусть $S$ -- мультипликативное подмножество кольца $A$. $\lambda: A \To L$ и $\lambda': A \To L'$ --
-     локализации $A$ по $S$. Тогда существует единственный изоморфизм $\phi: L \To L'$,
+    Пусть $S$ -- мультипликативное подмножество кольца $R$. $\lambda: R \To L$ и $\lambda': R \To L'$ --
+     локализации $R$ по $S$. Тогда существует единственный изоморфизм $\phi: L \To L'$,
      для которого коммутативна диаграмма
     % https://q.uiver.app/?q=WzAsMyxbMCwxLCJBIl0sWzEsMCwiTCJdLFsyLDEsIkwnIl0sWzAsMSwiXFxsYW1iZGEiXSxbMSwyLCJcXHBoaSJdLFswLDIsIlxcbGFtYmRhJyIsMl1d
      \[\begin{tikzcd}
          & L \\
-         A && {L'}
+         R && {L'}
          \arrow["\lambda", from=2-1, to=1-2]
          \arrow["\phi", from=1-2, to=2-3]
          \arrow["{\lambda'}"', from=2-1, to=2-3]
@@ -200,37 +180,44 @@
 \end{thm}
 
 \begin{thm}\cite[стр. 94]{Volochkov}
-     Пусть $S$ -- мультипликативное подмножество кольца $A$.
-     Тогда существует локализация $A$ по $S$.
+     Пусть $S$ -- мультипликативное подмножество кольца $R$.
+     Тогда существует локализация $R$ по $S$.
+\end{thm}
+
+\begin{thm}\cite{Bosch}
+    Пусть $R_S$ -- локализация $R$ по $S \subset R$.
+    Тогда идеал $\mathfrak{p}$ расширяется до соответствующего
+    идеала $\mathfrak{p}R \subsetneq$ тогда, и только тогда,
+    когда $S \cap \mathfrak{p} = \0$.
 \end{thm}
 
 \begin{dfn}
-    \textit{Локализацией $A$ по $f$} назовем локализацию $A$ по мультипликативному
+    \textit{Локализацией $R$ по $f$} назовем локализацию $R$ по мультипликативному
     множеству $\set{f^n|n\in \Z_{\ges 0}}$
 \end{dfn}
 
 \begin{dfn}
-    \textit{Локализацией $A$ по простому идеалу $\mathfrak{p}$} будем называть
-    локализацию по множеству $A \setminus \mathfrak{p}$.
+    \textit{Локализацией $R$ по простому идеалу $\mathfrak{p}$} будем называть
+    локализацию по множеству $R \setminus \mathfrak{p}$.
 \end{dfn}
 
 \begin{dfn}
-    Пусть $S$ -- мультипликативное подмножество кольца $A$.
+    Пусть $S$ -- мультипликативное подмножество кольца $R$.
     \textit{Аннулятором $S$} назовем следующее множество
     $$
-    \operatorname{Ann}(S) = \set{a \in A | aS = \set{0} }
+    \operatorname{Ann}(S) = \set{a \in R | aS = \set{0} }
     $$
 \end{dfn}
 
 % TODO локализация по простому элементу
 
 \begin{thm}\cite[стр. 96]{Volochkov}
-    Пусть $S$ -- мультипликативное подмножество кольца $A$, $\lambda: A \To L$ -- локализация $A$ по $S$.
-    Если $a \in A$, то $\lambda(a) = 0$ $\Leftrightarrow$ $as = 0$ для некоторого $s \in S$.
+    Пусть $S$ -- мультипликативное подмножество кольца $R$, $\lambda: R \To L$ -- локализация $R$ по $S$.
+    Если $a \in R$, то $\lambda(a) = 0$ $\Leftrightarrow$ $as = 0$ для некоторого $s \in S$.
 \end{thm}
 
 \begin{thm}\cite[стр. 97]{Volochkov}
-    Пусть $S$ -- мультипликативное подмножество кольца $A$, $\lambda: A \To L$ -- локализация $A$ по $S$.
+    Пусть $S$ -- мультипликативное подмножество кольца $R$, $\lambda: R \To L$ -- локализация $R$ по $S$.
     Тогда равносильны следующие условия:
     \begin{enumerate}
         \item $L = \{0\}$;
@@ -264,8 +251,8 @@
 \end{cor}
 
 \begin{thm}\cite[стр. 98]{Volochkov}
-    Пусть $A$ -- кольцо, $f\in A$, $\lambda: A \To L$ -- локализация $A$ по $f$,
-    $a \in A$. Тогда равносильны следующие условия:
+    Пусть $R$ -- кольцо, $f\in R$, $\lambda: R \To L$ -- локализация $R$ по $f$,
+    $a \in R$. Тогда равносильны следующие условия:
     \begin{enumerate}
         \item $\lambda(a) = 0$;
         \item $af^n = 0$, для некоторого $n \in \Z_{\ges 0}$;
@@ -274,13 +261,13 @@
 \end{thm}
 
 \begin{thm}\cite[стр. 98]{Volochkov}
-    Пусть $S$ -- мультипликативное подмножество кольца $A$,
-    $\lambda: A \To L$ -- морфизм колец. Тогда равносильны следующие условия:
+    Пусть $S$ -- мультипликативное подмножество кольца $R$,
+    $\lambda: R \To L$ -- морфизм колец. Тогда равносильны следующие условия:
     \begin{enumerate}
-        \item $\lambda$ -- локализация $A$ по $S$;
+        \item $\lambda$ -- локализация $R$ по $S$;
         \item $(a)$ $\lambda(S) \subseteq L^*$ \\
-            $(b)$ $L = \set{\lambda(a)/\lambda(s)|a\in A, s\in S}$ \\
-            $(c)$ $\forall a\in A \; \lambda(a)=0 \Leftrightarrow as=0$ для некоторого $S$.
+            $(b)$ $L = \set{\lambda(a)/\lambda(s)|a\in R, s\in S}$ \\
+            $(c)$ $\forall a\in R \; \lambda(a)=0 \Leftrightarrow as=0$ для некоторого $S$.
     \end{enumerate}
 \end{thm}
 
@@ -315,6 +302,36 @@
 \end{thm}
 
 \section{МОДУЛИ}
+
+\begin{dfn}
+    Пусть $R$ -- кольцо. $R$-модуль состоит из множества $M$ вместе с законом сложения $M \times M \To M$, $(a, b) \mapsto a + b$ и законом умножения на скаляр $\alpha \in R$ $R \times M \To M$, $(\alpha, a) \mapsto \alpha \cdot a$ такими, что для любых $\alpha, \beta \in R$, $a, b \in M$:
+    \begin{enumerate}
+        \item $M$ -- абелева группа по сложению;
+        \item $(\alpha + \beta) \cdot a = \alpha \cdot a + \beta \cdot a$ и
+        $\alpha \cdot (a + b) = \alpha \cdot a + \alpha · b$;
+        \item $(\alpha \cdot \beta) \cdot a =  \alpha \cdot (\beta \cdot a)$
+        \item $1 \cdot a = a$ для единичного элемента $1 \in R$.
+    \end{enumerate}
+\end{dfn}
+
+\begin{dfn}
+    Пусть $R$ -- кольцо. Левый модуль $M$ кольца $R$ или левый $R$-модуль $M$,
+    если для любых $a,b \in R$ и $x,y \in M$ выполняется следующее:
+    \begin{enumerate}
+        \item $(a + b)x = ax + bx$;
+        \item $a(x + y) = ax + ay$.
+    \end{enumerate}
+    Аналогичным образом определяется правый $R$-модуль.
+    Если модуль $M$ является одновременно левым и правым, то будем называть его просто $R$-модуль.
+\end{dfn}
+
+\begin{dfn}\cite[стр. 119]{Lang}
+    Пусть $M, M'$ -- модули кольца $R$. Морфизмом модулей будем называть отображение
+    такое $f: M \To M'$, что для любых $a,b \in R$ и $x,y \in M$ выполняется:
+    $$
+    f(ax + by) = af(x) + bf(y)
+    $$
+\end{dfn}
 
 \begin{dfn}
     Модуль $M$ является \textit{прямой суммой} своих подмодулей $M_1$, $M_2$,
@@ -391,9 +408,9 @@
 \end{dfn}
 
 \begin{dfn}
-    Пусть $K$ -- кольцо, $U$, $V$, $W$ -- $K$-модули,
+    Пусть $K$ -- кольцо, $U$, $V$, $W$ -- $R$-модули,
     $f: U \times V \To W$ -- билинейное отображение.
-    Составим $K$-модуль $T$ и билинейное отображение $g: U \times V \To T$ такие,
+    Составим $R$-модуль $T$ и билинейное отображение $g: U \times V \To T$ такие,
     что для любого $f$ существует отображение $h: T \To W$,
     что коммутативна диаграмма
    % https://q.uiver.app/#q=WzAsMyxbMCwxLCJVXFx0aW1lcyBWIl0sWzEsMCwiVCJdLFsxLDIsIlciXSxbMCwxLCJnIl0sWzAsMiwiZiIsMl0sWzEsMiwiaCJdXQ==
@@ -405,9 +422,43 @@
        \arrow["f"', from=2-1, to=3-2]
        \arrow["h", from=1-2, to=3-2]
    \end{tikzcd}\]
-    Модуль $T$ с соответствующими свойствами назовем \textit{тензорным произведением $U$ на $V$ над кольцом $K$} и обозначим $U \otimes_{K} V$.
+    Модуль $T$ с соответствующими свойствами назовем \textit{тензорным произведением $U$ на $V$ над кольцом $R$} и обозначим $U \otimes_{R} V$.
 \end{dfn}
 
+\begin{dfn}
+    $R$-модуль $N$ называют плоским, если для любого мономорфизма
+    $R$-модулей $M' \To M$ отображение $M' \otimes_R N \To M \otimes_R N$ полученое с помощью тензорного произведения с $N$ над  $R$ инъективно.
+    Гомоморфизм колец $\phi: R \To R'$ называют плоским, если рассматриваемый как $R$-модуль модуль $R'$ по средством $\phi$ -- плоский.
+\end{dfn}
+
+\begin{dfn}
+    $R$-модуль $N$ называют вполне плоским, если выполняются следующие условия:
+    \begin{enumerate}
+        \item $N$ -- плоский;
+        \item Если $M$ -- $R$-модуль такой,
+        что $M \otimes_{R} N = 0$, то $M = 0$;
+    \end{enumerate}
+    Гомоморфизм колец $\phi: R \To R'$ называют вполне плоским,
+    если рассматриваемый как $R$-модуль
+    модуль $R'$ по средством $\phi$ -- вполне плоский.
+\end{dfn}
+
+\begin{thm}\cite{Bosch}
+    Пусть $(N_i)_{i\in I}$ семейство $R$-модулей.
+    Прямая сумма $\bigoplus\limits_{i\in I} N_i$
+    плоская тогда и только тогда,
+    когда модуль $N_i$ плоский для всех $i \in I$.
+\end{thm}
+
+\begin{thm}\cite{Bosch}
+    Для любого $R$-модуля $N$ равносильны следующие условия:
+    \begin{enumerate}
+        \item $N$ -- достаточно плоский;
+        \item $N$ -- плоский и для любого
+        максимального идеала $\mathfrak{m} \subset R$
+        справедливо $\mathfrak{m}N = N$.
+    \end{enumerate}
+\end{thm}
 \begin{dfn}
     $\phi : A \To B$ -- морфизм $k$-алгебр, $n \in \Z_{\ges 0}$, $S$ -- подмодуль
     $A$-модуля $A^n$. Обозначим $S^B := \gen{\phi(S)}_B$ $B$-линейную оболочку
