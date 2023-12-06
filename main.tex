@@ -1,5 +1,5 @@
 % !TeX encoding = windows-1251
-\documentclass[12pt,a4paper,oneside]{report}
+\documentclass[14pt,a4paper,oneside]{extreport}
 % \textwidth=16cm \oddsidemargin=0pt \evensidemargin=0pt
 \usepackage[english,russian]{babel}
 \usepackage{amsmath,amsthm,amssymb}
@@ -101,10 +101,6 @@
 \usepackage{setspace}
 \onehalfspacing
 
-\usepackage{tocloft}
-\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}} % for parts
-\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
-
 \makeatletter
 \renewcommand{\@biblabel}[1]{#1.} % Заменяем библиографию с квадратных скобок на точку:
 \makeatother
@@ -124,6 +120,17 @@
 
 \usepackage{multirow}
 
+\usepackage{tocloft}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}} % for parts
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
+\renewcommand{\cfttoctitlefont}{\hspace*{14em}\Large\bfseries} %together with
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftbeforetoctitleskip}{0}
+\renewcommand{\cftaftertoctitleskip}{0}
+\renewcommand{\cftchapfont}{\normalfont \MakeUppercase}
+
+%
+
 % ---- extra math -----
 \newcommand{\ges}{\geqslant}
 \newcommand{\les}{\leqslant}
@@ -132,7 +139,7 @@
     \renewcommand{\contentsname}{Содержание} % не работает в преамбуле, необходимо по требованиям
     \include{titlepage}
     \setcounter{page}{2}
-    {\normalfont\tableofcontents}
+    \tableofcontents
     \include{extras}
     \include{grassmann-schemes}
     \include{bibliography}
