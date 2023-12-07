@@ -72,7 +72,7 @@
 
 \begin{example*}
     Пусть $R$ -- кольцо. Подмножества $R,\left\lbrace 0\right\rbrace $ -- идеалы кольца $R$.
-    Такие идеалы называются \textit{тривиальными}.
+    Такие идеалы называются \textit{тривиальными}. Идеал $\left\lbrace 0\right\rbrace$ называют нулевым, $R$ -- единичным.
 \end{example*}
 
 \begin{dfn}
@@ -408,21 +408,20 @@
 \end{dfn}
 
 \begin{dfn}
-    Пусть $K$ -- кольцо, $U$, $V$, $W$ -- $R$-модули,
-    $f: U \times V \To W$ -- билинейное отображение.
-    Составим $R$-модуль $T$ и билинейное отображение $g: U \times V \To T$ такие,
-    что для любого $f$ существует отображение $h: T \To W$,
-    что коммутативна диаграмма
-   % https://q.uiver.app/#q=WzAsMyxbMCwxLCJVXFx0aW1lcyBWIl0sWzEsMCwiVCJdLFsxLDIsIlciXSxbMCwxLCJnIl0sWzAsMiwiZiIsMl0sWzEsMiwiaCJdXQ==
+    Тензорное произведение $M$ и $N$ над $R$ состоит из $R$-модуля $T$
+    вместе с $R$-билинейным отображением $\tau: M \times N \To T$ такое,
+    что выполняется следующее универсальное свойство:
+
+    \textit{Для любого $R$-билинейного отображения $\Phi: M \times N \To E$ на некоторый $R$-модуль $E$ существует единственный $R$-линейный морфизм $\phi: T \To E$ такой, что $\phi \circ \tau = \Phi$ и коммутативна диаграмма}
+   % https://q.uiver.app/#q=WzAsMyxbMCwwLCJNIFxcdGltZXMgTiJdLFsxLDAsIlQiXSxbMCwxLCJFIl0sWzAsMiwiXFxQaGkiLDJdLFswLDEsIlxcdGF1Il0sWzEsMiwiXFxwaGkiXV0=
    \[\begin{tikzcd}
-       & T \\
-       {U\times V} \\
-       & W
-       \arrow["g", from=2-1, to=1-2]
-       \arrow["f"', from=2-1, to=3-2]
-       \arrow["h", from=1-2, to=3-2]
+       {M \times N} & T \\
+       E
+       \arrow["\Phi"', from=1-1, to=2-1]
+       \arrow["\tau", from=1-1, to=1-2]
+       \arrow["\phi", from=1-2, to=2-1]
    \end{tikzcd}\]
-    Модуль $T$ с соответствующими свойствами назовем \textit{тензорным произведением $U$ на $V$ над кольцом $R$} и обозначим $U \otimes_{R} V$.
+   Обозначается $M \otimes_R N$.
 \end{dfn}
 
 \begin{dfn}
@@ -444,13 +443,24 @@
 \end{dfn}
 
 \begin{thm}\cite{Bosch}
+    Пусть $(M_i)_{i\in I}$ семейство $R$-модулей, $N$ -- $R$-модуль.
+    Тогда существует стандартный изоморфизм
+    $$
+    \begin{aligned}
+        \left(\bigoplus\limits_{i\in I} M_i\right) \otimes_R N &\overset{\sim}{\To} \bigoplus\limits_{i\in I} \left( M_i \otimes_R N \right) \\
+        (x_i)_{i \in I} \otimes_R y &\longmapsto (x_i \otimes_R y)_{i \in I}
+    \end{aligned}
+    $$
+\end{thm}
+
+\begin{thm}\cite{Bosch}\label{flatness-of-dir-sum}
     Пусть $(N_i)_{i\in I}$ семейство $R$-модулей.
     Прямая сумма $\bigoplus\limits_{i\in I} N_i$
     плоская тогда и только тогда,
     когда модуль $N_i$ плоский для всех $i \in I$.
 \end{thm}
 
-\begin{thm}\cite{Bosch}
+\begin{thm}\cite{Bosch}\label{faithfully-flatnes-n-max-ideal}
     Для любого $R$-модуля $N$ равносильны следующие условия:
     \begin{enumerate}
         \item $N$ -- вполне плоский;
@@ -517,6 +527,22 @@ $$
         \end{tikzcd}\]
     \end{enumerate}
 \end{dfn}
+
+\begin{thm}\cite{Bosch}\label{mult-sys-n-canon-isomor}
+    Пусть $S \subset R$ -- мультипликативное множество.
+    Тогда:
+    \begin{enumerate}
+        \item $\phi: R\To R_S$ -- плоский морфизм,
+        т. е. $R$-модуль $R_S$ плоский по средством $\phi$;
+        \item для любого $R$-модуля $M$ существует стандартный изоморфизм
+        $$
+        \begin{aligned}
+            M \otimes_R R &\overset{\sim}{\To} M_S \\
+            \left(x \otimes \frac{a}{s}\right) &\longmapsto \frac{ax}{s}
+        \end{aligned}
+        $$
+    \end{enumerate}
+\end{thm}
 
 \section{КАТЕГОРИИ И ФУНКТОРЫ}
 

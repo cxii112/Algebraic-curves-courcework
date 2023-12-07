@@ -6,35 +6,19 @@
     "Session": {
         "Bookmarks": [
         ],
-        "CurrentFile": "grassmann-schemes.tex",
+        "CurrentFile": "main.tex",
         "FileVersion": 1,
         "Files": [
             {
-                "Col": 0,
+                "Col": 49,
                 "EditorGroup": 0,
                 "FileName": "main.tex",
-                "FirstLine": 0,
+                "FirstLine": 101,
                 "FoldedLines": "",
-                "Line": 2
-            },
-            {
-                "Col": 0,
-                "EditorGroup": 0,
-                "FileName": "extras.tex",
-                "FirstLine": 0,
-                "FoldedLines": "",
-                "Line": 0
-            },
-            {
-                "Col": 0,
-                "EditorGroup": 0,
-                "FileName": "grassmann-schemes.tex",
-                "FirstLine": 0,
-                "FoldedLines": "",
-                "Line": 0
+                "Line": 137
             }
         ],
         "MasterFile": "",
-        "VerticalSplit": true
+        "VerticalSplit": false
     }
 }

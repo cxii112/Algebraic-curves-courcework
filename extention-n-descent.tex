@@ -1,0 +1,53 @@
+% !TeX encoding = windows-1251
+\chapter{РАСШИРЕНИЕ КОЭФФИЦИЕНТОВ И СПУСК}
+
+Пусть есть мультипликативное подмножество $f_1, \dots, f_n$ кольца $R$,
+порождающих единичный идеал.
+Введем $R' := \prod\limits_{i = 1}^{n} R_{f_i}$.
+Покажем, что морфизм $R \To R'$ -- вполне плоский.
+
+Распишем $R' = \prod\limits_{i = 1}^{n} R_{f_i} = R_{f_1} \times \dots \times R_{f_n}$.
+Множество $f_1, \dots, f_n$  -- мультипликативное,
+тогда по (\ref{mult-sys-n-canon-isomor})
+$R \To R_{f_i}$ -- плоский гомоморфизм модулей ($i =\overline{1,n}$). Если рассмотреть $R'$ как прямую сумму $R$-модулей, тогда по (\ref{flatness-of-dir-sum}) $R'$ -- плоское кольцо. Кроме того, если есть максимальный идеал $\mathfrak{m} \subset R$ , то найдется такой $f_j \notin \mathfrak{m}$ ($j = \overline{1,n}$), что $\mathfrak{m}R_{f_i} \subsetneq R_{f_i}$. Таким образом, $R \To R'$ -- вполне плоский гомоморфизм по (\ref{faithfully-flatnes-n-max-ideal}).
+
+Для тех же $R$ и $R'$ покажем, что $R\text{-}\mathbf{Mod}$ категория эквивалентна (декартовому) произведению категорий $\prod\limits_{i = 1}^{n} R_{f_i}\text{-}\mathbf{Mod}$.
+
+Категория $K\text{-}\mathbf{Mod}$ $K$-модулей для произвольного кольца $K$ составляется следующим образом:
+\begin{itemize}
+    \item объектами категорий будут $K$-модули;
+    \item стрелками -- гомоморфизмы модулей.
+\end{itemize}
+
+\begin{dfn}
+    Для категорий $\cat{C}$, $\cat{D}$ будем называть категорию $\cat{E} = \cat{C} \times \cat{D}$ произведением категорий. Определим $\cat{E}$ следующим образом:
+    \begin{itemize}
+        \item $\Ob{\cat{E}} = \Ob{\cat{C}} \times \Ob{\cat{D}}$.\\
+        $\Ob{\cat{E}}\ni E = C \times D$, $C$, $D$ объекты категорий $\cat{C}$ и $\cat{D}$ соответственно;
+        \item $\operatorname{Mor}\left(\cat{E}\right) = \operatorname{Mor}\left(\cat{C}\right) \times \operatorname{Mor}\left(\cat{D}\right)$.
+    \end{itemize}
+    А именно, существует функтор $S: \cat{C} \times \cat{D} \To \cat{E}$ такой, что для $C \in \Ob{\cat{C}}$, $D \in \Ob{\cat{D}}$ и стрелок $f: C \To C'$, $g: D \To D'$ коммутативна диаграмма
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJTKEMsRCkiXSxbMSwwLCJTKEMnLEQpIl0sWzAsMSwiUyhDLEQnKSJdLFsxLDEsIlMoQycsRCcpIl0sWzAsMSwiUyhmLEQpIl0sWzAsMiwiUyhDLGcpIiwyXSxbMiwzLCJTKGYsIEQnKSIsMl0sWzEsMywiUyhDJyxnKSJdXQ==
+    \[\begin{tikzcd}
+        {S(C,D)} & {S(C',D)} \\
+        {S(C,D')} & {S(C',D')}
+        \arrow["{S(f,D)}", from=1-1, to=1-2]
+        \arrow["{S(C,g)}"', from=1-1, to=2-1]
+        \arrow["{S(f, D')}"', from=2-1, to=2-2]
+        \arrow["{S(C',g)}", from=1-2, to=2-2]
+    \end{tikzcd}\]
+\end{dfn}
+
+Таким образом, для $R_{f_i}$ $R$-модулей получим
+% https://q.uiver.app/#q=WzAsNCxbMCwxLCJSX3tmXzF9Il0sWzEsMSwiUl97Zl8xfSBcXHRpbWVzIFJfe2ZfMn0iXSxbMiwxLCJSX3tmXzJ9Il0sWzEsMCwiUl97Zl8xIGZfMn0iXSxbMCwzLCJmXzIgUl97Zl8xfSJdLFsyLDMsImZfMSBSX3tmXzJ9IiwyXSxbMCwxLCIoXFxjZG90LFJfe2ZfMn0pIiwyXSxbMiwxLCIoUl97Zl8xfSxcXGNkb3QpICJdLFsxLDMsIiIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dXQ==
+\[\begin{tikzcd}
+    & {R_{f_1 f_2}} \\
+    {R_{f_1}} & {R_{f_1} \times R_{f_2}} & {R_{f_2}}
+    \arrow["{f_2 R_{f_1}}", from=2-1, to=1-2]
+    \arrow["{f_1 R_{f_2}}"', from=2-3, to=1-2]
+    \arrow["{(\cdot,R_{f_2})}"', from=2-1, to=2-2]
+    \arrow["{(R_{f_1},\cdot) }", from=2-3, to=2-2]
+    \arrow[dotted, from=2-2, to=1-2]
+\end{tikzcd}\]
+
+Для $R_{f_3}, \cdot, R_{f_n}$ определяется индуктивно.

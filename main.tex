@@ -19,8 +19,8 @@
 \usepackage{MnSymbol}
 \usepackage{mathrsfs}
 \usetikzlibrary{babel}
-\definecolor{linkcolor}{HTML}{008CF9} % цвет ссылок
-\definecolor{urlcolor}{HTML}{008CF9} % цвет гиперссылок
+\definecolor{linkcolor}{HTML}{000000} % цвет ссылок
+\definecolor{urlcolor}{HTML}{000000} % цвет гиперссылок
 \hypersetup{pdfstartview=FitH,  linkcolor=linkcolor,urlcolor=urlcolor, colorlinks=true}
 \vfuzz2pt % Don't report over-full v-boxes if over-edge is small
 \hfuzz2pt % Don't report over-full h-boxes if over-edge is small
@@ -134,13 +134,18 @@
 % ---- extra math -----
 \newcommand{\ges}{\geqslant}
 \newcommand{\les}{\leqslant}
+\newcommand{\cat}[1]{\ensuremath{\mathfrak{#1}}}
+\newcommand{\Ob}[1]{\ensuremath{\operatorname{Ob}\left(#1\right)}}
 
 \begin{document}
     \renewcommand{\contentsname}{Содержание} % не работает в преамбуле, необходимо по требованиям
     \include{titlepage}
     \setcounter{page}{2}
     \tableofcontents
+    \include{intro}
     \include{extras}
-    \include{grassmann-schemes}
+    %\include{grassmann-schemes}
+    \include{extention-n-descent}
+    \include{conclusion}
     \include{bibliography}
 \end{document}
